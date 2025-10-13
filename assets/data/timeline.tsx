@@ -31,7 +31,8 @@ export const markers = [
         displayTime: "10:30 AM - 11:15 AM",
         icon: <MicVocal className="h-auto sm:w-8" />,
         title: "Beyond Code: Cultivating a Product Mindset",
-        description: "Swapnil Agarwal will address bias in placements, ethical AI in hiring, and key strategies for interviews, skill-building, and career growth.",
+        description:
+          "Swapnil Agarwal will address bias in placements, ethical AI in hiring, and key strategies for interviews, skill-building, and career growth.",
         speaker: "Swapnil Agarwal",
         role: "Founder & CEO @ Cactro",
         venue: "TBA",
@@ -110,7 +111,8 @@ export const markers = [
         displayTime: "10:00 AM - 10:45 AM",
         icon: <MicVocal className="h-auto sm:w-8" />,
         title: "DevTalk 4",
-        description: "Aakansha Doshi will share her journey and guide students on the technical and practical aspects of contributing to open source",
+        description:
+          "Aakansha Doshi will share her journey and guide students on the technical and practical aspects of contributing to open source",
         speaker: "Aakansha Doshi",
         role: "Core Maintainer and Contributor @ Project Excalidraw",
         venue: "TBA",
