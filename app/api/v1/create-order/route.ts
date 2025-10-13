@@ -1,28 +1,58 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { Cashfree, CFEnvironment, CreateOrderRequest } from "cashfree-pg";
-import { adminDb } from "@/firebase/admin";
+import { adminDb, verifySessionCookie } from "@/firebase/admin";
 import { eventDetails } from "@/assets/data/eventPayment";
+import { cookies } from "next/headers";
 
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
   try {
     const body = await req.json().catch(() => ({}));
-    const {
-      redirectUrl,
-      eventId,
-      teamId,
-      customerId,
-      customerName,
-      customerEmail,
-      customerPhone,
-    } = body as {
-      redirectUrl?: string;
-      eventId?: string;
-      teamId?: string;
-      customerId?: string;
-      customerName?: string;
-      customerEmail?: string;
-      customerPhone?: string;
-    };
+    const { redirectUrl, eventId, teamId, customerId, customerEmail } =
+      body as {
+        redirectUrl?: string;
+        eventId?: string;
+        teamId?: string;
+        customerId?: string;
+        customerEmail?: string;
+      };
+
+    const cookieStore = await cookies();
+    const session = cookieStore.get("__session")?.value;
+    if (!session)
+      return NextResponse.json(
+        { error: "Missing session cookie" },
+        { status: 401 },
+      );
+
+    const decoded = await verifySessionCookie(session);
+    if (!decoded)
+      return NextResponse.json(
+        { error: "Invalid session cookie" },
+        { status: 401 },
+      );
+
+    const uid = decoded.uid;
+
+    const profileRef = adminDb.collection("users").doc(uid);
+    const profileSnapshot = await profileRef.get();
+
+    if (!profileSnapshot.exists) {
+      return NextResponse.json(
+        { error: "User profile not found" },
+        { status: 404 },
+      );
+    }
+
+    const userProfile = profileSnapshot.data();
+    const name = userProfile?.name;
+    const phone = userProfile?.phone;
+
+    if (!name || !phone) {
+      return NextResponse.json(
+        { error: "Invalid user profile data" },
+        { status: 400 },
+      );
+    }
 
     if (!eventId || !(eventId in eventDetails)) {
       return NextResponse.json(
@@ -31,32 +61,22 @@ export async function POST(req: Request) {
       );
     }
 
-    if (!customerId || !customerName || !customerEmail || !customerPhone) {
-      return NextResponse.json(
-        { error: "Missing customer details" },
-        { status: 400 },
-      );
-    }
-
     const amount = eventDetails[parseInt(eventId)].amount;
     const parsedAmount =
       typeof amount === "string" ? parseFloat(amount) : Number(amount);
-    if (!parsedAmount || Number.isNaN(parsedAmount)) {
+    if (!parsedAmount || Number.isNaN(parsedAmount))
       return NextResponse.json({ error: "Invalid amount" }, { status: 400 });
-    }
 
-    if (
-      !redirectUrl ||
-      typeof redirectUrl !== "string" ||
-      !/^https?:\/\/.+/i.test(redirectUrl)
-    ) {
+    if (!redirectUrl || !/^https?:\/\/.+/i.test(redirectUrl))
       return NextResponse.json(
         { error: "Invalid redirectUrl" },
         { status: 400 },
       );
-    }
 
-    const chargeAmount = Math.round(parsedAmount * 1.05);
+    const chargeAmount =
+      eventId === "1"
+        ? Math.round(parsedAmount + 10)
+        : Math.round(parsedAmount + 3);
 
     const orderId = `order_${Date.now()}`;
 
@@ -65,10 +85,10 @@ export async function POST(req: Request) {
       order_currency: "INR",
       order_id: orderId,
       customer_details: {
-        customer_id: customerId,
-        customer_name: customerName,
+        customer_id: customerId || uid,
+        customer_name: name,
         customer_email: customerEmail,
-        customer_phone: customerPhone,
+        customer_phone: phone,
       },
       order_meta: {
         return_url: `${redirectUrl}?order_id={order_id}`,
@@ -96,7 +116,6 @@ export async function POST(req: Request) {
         : CFEnvironment.SANDBOX;
 
     const cashfree = new Cashfree(env, clientId, clientSecret);
-
     const response = await cashfree.PGCreateOrder(orderRequest);
 
     if (teamId) {
@@ -110,16 +129,14 @@ export async function POST(req: Request) {
             pendingOrderCreatedAt: new Date().toISOString(),
           });
         } else {
-          console.warn(
-            `Registration doc not found for teamId=${teamId}; skipping pendingOrder write.`,
-          );
+          console.warn(`Registration doc not found for teamId=${teamId}`);
         }
       } catch (e) {
         console.error("Failed to set pendingOrderId on registration:", e);
       }
     }
 
-    if (!response || !response.data || !response.data.payment_session_id) {
+    if (!response?.data?.payment_session_id) {
       console.error("Cashfree response missing data:", response);
       return NextResponse.json(
         { error: "Unexpected response" },

@@ -446,10 +446,9 @@ export default function EventRegistration({ eventId }: Props) {
                   </ul>
 
                   {/* small note */}
-                  <p className="mb-2 text-[11px] text-gray-400">
+                  <p className="text-[11px] text-gray-400">
                     Teammates should join using the team leaders email.
                   </p>
-
                   <div className="border-primary/50 border-t" />
                   <p className="mt-1 flex justify-around gap-8 text-xs text-white uppercase">
                     <span>{`min : ${minMembers}`}</span>
@@ -476,43 +475,48 @@ export default function EventRegistration({ eventId }: Props) {
                 {/* Leader Actions */}
                 {team.leaderEmail === userEmail && !team.paymentDone && (
                   <>
-                    <div className="flex flex-col gap-4 pt-2 sm:flex-row">
-                      <ClippedCard
-                        innerBg="bg-primary"
-                        className="flex-1 hover:brightness-95"
-                      >
-                        {canPay ? (
-                          <PaymentButton
-                            disabled={actionLoading}
-                            eventId={eventId}
-                            teamId={team.id}
-                          />
-                        ) : (
-                          <Button
-                            onClick={() =>
-                              toast.error(
-                                `Add ${minMembers - membersCount} more member(s) to proceed to payment.`,
-                              )
-                            }
-                            disabled={actionLoading}
-                            className="h-fit w-full cursor-pointer rounded-none px-4 py-2 text-xs font-bold tracking-widest text-black uppercase"
-                          >
-                            Pay Rs. {amount}
-                          </Button>
-                        )}
-                      </ClippedCard>
-                      <ClippedCard
-                        innerBg="bg-black"
-                        className="flex-1 hover:brightness-95"
-                      >
-                        <Button
-                          onClick={handleDisband}
-                          disabled={actionLoading}
-                          className="h-fit w-full cursor-pointer rounded-none bg-black px-4 py-2 text-xs font-bold tracking-widest text-white uppercase hover:bg-black"
+                    <div>
+                      <div className="flex flex-col gap-4 pt-2 sm:flex-row">
+                        <ClippedCard
+                          innerBg="bg-primary"
+                          className="flex-1 hover:brightness-95"
                         >
-                          Disband Team
-                        </Button>
-                      </ClippedCard>
+                          {canPay ? (
+                            <PaymentButton
+                              disabled={actionLoading}
+                              eventId={eventId}
+                              teamId={team.id}
+                            />
+                          ) : (
+                            <Button
+                              onClick={() =>
+                                toast.error(
+                                  `Add ${minMembers - membersCount} more member(s) to proceed to payment.`,
+                                )
+                              }
+                              disabled={actionLoading}
+                              className="h-fit w-full cursor-pointer rounded-none px-4 py-2 text-xs font-bold tracking-widest text-black uppercase"
+                            >
+                              Pay Rs. {amount}
+                            </Button>
+                          )}
+                        </ClippedCard>
+                        <ClippedCard
+                          innerBg="bg-black"
+                          className="flex-1 hover:brightness-95"
+                        >
+                          <Button
+                            onClick={handleDisband}
+                            disabled={actionLoading}
+                            className="h-fit w-full cursor-pointer rounded-none bg-black px-4 py-2 text-xs font-bold tracking-widest text-white uppercase hover:bg-black"
+                          >
+                            Disband Team
+                          </Button>
+                        </ClippedCard>
+                      </div>
+                      <p className="mt-3 text-center text-[11px] text-gray-200">
+                        + 1.7% platform fee
+                      </p>
                     </div>
                   </>
                 )}
