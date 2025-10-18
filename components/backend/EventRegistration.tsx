@@ -42,15 +42,14 @@ type TeamType = {
 type ConfirmDialogProps = {
   open: boolean;
   title: string;
-  description:  React.ReactNode;
-  confirmText?: string;   
-  cancelText?: string;    
-  onConfirm?: () => void; 
+  description: React.ReactNode;
+  confirmText?: string;
+  cancelText?: string;
+  onConfirm?: () => void;
   onCancel: () => void;
   loading?: boolean;
   children?: ReactNode;
 };
-
 
 function ConfirmDialog({
   open,
@@ -71,7 +70,7 @@ function ConfirmDialog({
           <AlertDialogDescription>{description}</AlertDialogDescription>
         </AlertDialogHeader>
 
-        <AlertDialogFooter className="flex gap-2 mt-4 justify-end">
+        <AlertDialogFooter className="mt-4 flex justify-end gap-2">
           <AlertDialogCancel
             disabled={loading}
             className="bg-red-500 text-white hover:bg-red-500/80"
@@ -96,8 +95,6 @@ function ConfirmDialog({
     </AlertDialog>
   );
 }
-
-
 
 export default function EventRegistration({ eventId }: Props) {
   const { user, loading: userLoading } = useAuth();
@@ -314,28 +311,31 @@ export default function EventRegistration({ eventId }: Props) {
 
       {/* Payment Modal */}
       {payWarningDialog && (
-      <ConfirmDialog
-      open={true}
-      title="Do you want to proceed to payment?"
-      description={
-       <>
-        Add all <strong>team members</strong> before proceeding! After payment, no new members can be added
-        </>
-      }
-      cancelText="Cancel"
-      onCancel={() => setPayWarningDialog(false)}
-      >
-      <PaymentButton
-         disabled={actionLoading}
-         eventId={eventId}
-         teamId={team?.id ?? ""}
-        />
-      </ConfirmDialog>
+        <ConfirmDialog
+          open={true}
+          title="Do you want to proceed to payment?"
+          description={
+            <>
+              Add all <strong>team members</strong> before proceeding! After
+              payment, no new members can be added
+            </>
+          }
+          cancelText="Cancel"
+          onCancel={() => setPayWarningDialog(false)}
+        >
+          <PaymentButton
+            disabled={actionLoading}
+            eventId={eventId}
+            teamId={team?.id ?? ""}
+          />
+        </ConfirmDialog>
       )}
 
       {/* Back Button */}
       <div className="font-orbitron absolute top-4 left-4 z-20 flex gap-4 md:top-10 md:left-10">
-        <ClippedButton onClick={() => router.push("/events")}>Back</ClippedButton>
+        <ClippedButton onClick={() => router.push("/events")}>
+          Back
+        </ClippedButton>
       </div>
 
       {/* Header */}
@@ -370,7 +370,10 @@ export default function EventRegistration({ eventId }: Props) {
                 <h3 className="mb-3 text-xs font-semibold tracking-wide text-white uppercase sm:text-sm">
                   Create a Team
                 </h3>
-                <ClippedCard innerBg="bg-primary" className="hover:brightness-95">
+                <ClippedCard
+                  innerBg="bg-primary"
+                  className="hover:brightness-95"
+                >
                   <Button
                     onClick={handleCreateTeam}
                     disabled={actionLoading}
@@ -393,7 +396,10 @@ export default function EventRegistration({ eventId }: Props) {
                     disabled={actionLoading}
                     className="flex-1 rounded border border-white/20 bg-transparent px-4 py-2 text-xs text-white placeholder:text-white/50"
                   />
-                  <ClippedCard innerBg="bg-primary" className="hover:brightness-95">
+                  <ClippedCard
+                    innerBg="bg-primary"
+                    className="hover:brightness-95"
+                  >
                     <Button
                       onClick={handleJoinTeam}
                       disabled={actionLoading}
@@ -433,17 +439,22 @@ export default function EventRegistration({ eventId }: Props) {
                           )}
                           <span>{m}</span>
                         </span>
-                        {team.leaderEmail === userEmail && m !== userEmail && !team.registered && (
-                          <ClippedCard innerBg="bg-red-600" outerBg="bg-transparent">
-                            <button
-                              onClick={() => handleRemoveMember(m)}
-                              disabled={actionLoading}
-                              className="px-3 py-1 text-xs font-bold text-white"
+                        {team.leaderEmail === userEmail &&
+                          m !== userEmail &&
+                          !team.registered && (
+                            <ClippedCard
+                              innerBg="bg-red-600"
+                              outerBg="bg-transparent"
                             >
-                              Remove
-                            </button>
-                          </ClippedCard>
-                        )}
+                              <button
+                                onClick={() => handleRemoveMember(m)}
+                                disabled={actionLoading}
+                                className="px-3 py-1 text-xs font-bold text-white"
+                              >
+                                Remove
+                              </button>
+                            </ClippedCard>
+                          )}
                       </li>
                     ))}
                   </ul>
@@ -459,18 +470,25 @@ export default function EventRegistration({ eventId }: Props) {
                 <div className="flex flex-col justify-between space-y-1 text-xs font-medium text-white sm:flex-row sm:space-y-0 sm:text-sm">
                   <p>
                     <b>&gt; Status:</b>{" "}
-                    <span className="text-primary">{team.registered ? "Registered" : "Pending"}</span>
+                    <span className="text-primary">
+                      {team.registered ? "Registered" : "Pending"}
+                    </span>
                   </p>
                   <p>
                     <b>&gt; Payment:</b>{" "}
-                    <span className="text-primary">{team.paymentDone ? "Done" : "Not Done"}</span>
+                    <span className="text-primary">
+                      {team.paymentDone ? "Done" : "Not Done"}
+                    </span>
                   </p>
                 </div>
 
                 {/* Leader Actions */}
                 {team.leaderEmail === userEmail && !team.paymentDone && (
                   <div className="flex flex-col gap-4 pt-2 sm:flex-row">
-                    <ClippedCard innerBg="bg-primary" className="flex-1 hover:brightness-95">
+                    <ClippedCard
+                      innerBg="bg-primary"
+                      className="flex-1 hover:brightness-95"
+                    >
                       <Button
                         onClick={() => setPayWarningDialog(true)}
                         disabled={actionLoading}
@@ -479,7 +497,10 @@ export default function EventRegistration({ eventId }: Props) {
                         Confirm Payment
                       </Button>
                     </ClippedCard>
-                    <ClippedCard innerBg="bg-black" className="flex-1 hover:brightness-95">
+                    <ClippedCard
+                      innerBg="bg-black"
+                      className="flex-1 hover:brightness-95"
+                    >
                       <Button
                         onClick={handleDisband}
                         disabled={actionLoading}
