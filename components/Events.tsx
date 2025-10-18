@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import { ClippedButton } from "./ClippedButton";
 import { events } from "@/assets/data/events";
 import { eventDetails } from "@/assets/data/eventPayment";
+import { Download } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -84,7 +85,7 @@ export default function Events() {
       </div>
 
       {/* Heading */}
-      <div className="relative z-10 mb-16 px-4 text-center">
+      <div className="relative z-10 mb-8 px-4 text-center">
         <h1 className="font-orbitron mb-6 text-center text-4xl font-bold text-black sm:text-7xl">
           DEVHOST EVENTS
         </h1>
@@ -97,6 +98,18 @@ export default function Events() {
             revealDelayMs={100}
             className="font-orbitron h-8 text-base tracking-wider text-black md:text-xl"
           />
+        </div>
+        <div className="mt-4 flex w-full items-center justify-center">
+          <a href="/brochure/devhost_event_rulebook.pdf" download>
+            <ClippedButton
+              innerBg="bg-black"
+              outerBg="bg-black"
+              textColor="text-white"
+            >
+              <Download size={20} />
+              <span className="font-default text-xs">Event Rulebook</span>
+            </ClippedButton>
+          </a>
         </div>
       </div>
 

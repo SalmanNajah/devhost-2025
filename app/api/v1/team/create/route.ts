@@ -1,3 +1,4 @@
+import { regClosed } from "@/assets/data/config";
 import { adminDb } from "@/firebase/admin";
 import { verifyToken } from "@/lib/verify-token";
 import { NextRequest, NextResponse } from "next/server";
@@ -7,6 +8,12 @@ export async function POST(req: NextRequest) {
     const decoded = await verifyToken(req);
     if (!decoded)
       return NextResponse.json({ error: "Invalid token" }, { status: 401 });
+
+    if (regClosed)
+      return NextResponse.json(
+        { error: "Registrations Ended" },
+        { status: 400 },
+      );
 
     // Get email from decoded token
     const { uid, email } = decoded;

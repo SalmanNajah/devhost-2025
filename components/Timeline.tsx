@@ -86,45 +86,45 @@ const CyberpunkTimeline: React.FC = () => {
                           </div>
 
                           {/* Content */}
-                          <div className="mt-4 text-gray-200">
+                          <div className="mt-6 text-gray-200">
                             {/* Title row with meta on right */}
                             <div className="flex flex-col items-start justify-between sm:flex-row">
-                              {/* Icon + Title */}
-                              <div className="space-y-2">
-                                <div className="flex items-baseline gap-3">
-                                  <span className="text-primary text-lg">
-                                    {event.icon}
-                                  </span>
-                                  <h3 className="font-orbitron leading-tight font-bold whitespace-pre">
-                                    {event.title}
-                                  </h3>
-                                </div>
+                              {/* Icon + Title + Description */}
+                              <div className="min-w-full flex-1 space-y-2">
+                                <div className="flex w-full flex-col items-baseline justify-between gap-3 md:flex-row">
+                                  <div className="flex">
+                                    <span className="text-primary text-lg">
+                                      {event.icon}
+                                    </span>
+                                    <h3 className="font-orbitron pl-2 leading-tight font-bold">
+                                      {event.title}
+                                    </h3>
+                                  </div>
 
-                                {/* Description */}
-                                <p className="mb-2 text-xs leading-relaxed whitespace-pre">
+                                  {/* Meta (speaker + role) */}
+                                  <div className="flex w-full flex-col items-end text-right text-xs sm:pb-0">
+                                    {event.speaker && (
+                                      <div className="font-orbitron flex items-center justify-end gap-2 text-xs sm:text-sm">
+                                        <DecryptText
+                                          text={`> ${event.speaker}`}
+                                          startDelayMs={200}
+                                          trailSize={4}
+                                          flickerIntervalMs={50}
+                                          revealDelayMs={50}
+                                          className="text-primary h-5 font-medium"
+                                        />
+                                      </div>
+                                    )}
+                                    {event.role && (
+                                      <div className="text-primary/70">
+                                        {event.role}
+                                      </div>
+                                    )}
+                                  </div>
+                                </div>
+                                <p className="pb-2 text-xs leading-relaxed">
                                   {event.description}
                                 </p>
-                              </div>
-
-                              {/* Meta (speaker + role) */}
-                              <div className="flex w-full flex-col items-end pb-6 text-right text-xs sm:pb-0">
-                                {event.speaker && (
-                                  <div className="font-orbitron flex items-center justify-end gap-2 text-xs sm:text-sm">
-                                    <DecryptText
-                                      text={`> ${event.speaker}`}
-                                      startDelayMs={200}
-                                      trailSize={4}
-                                      flickerIntervalMs={50}
-                                      revealDelayMs={50}
-                                      className="text-primary h-5 font-medium"
-                                    />
-                                  </div>
-                                )}
-                                {event.role && (
-                                  <div className="text-primary/70">
-                                    {event.role}
-                                  </div>
-                                )}
                               </div>
                             </div>
                           </div>

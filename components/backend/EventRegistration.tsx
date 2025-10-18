@@ -482,10 +482,9 @@ export default function EventRegistration({ eventId }: Props) {
                   </ul>
 
                   {/* small note */}
-                  <p className="mb-2 text-[11px] text-gray-400">
+                  <p className="text-[11px] text-gray-400">
                     Teammates should join using the team leaders email.
                   </p>
-
                   <div className="border-primary/50 border-t" />
                   <p className="mt-1 flex justify-around gap-8 text-xs text-white uppercase">
                     <span>{`min : ${minMembers}`}</span>

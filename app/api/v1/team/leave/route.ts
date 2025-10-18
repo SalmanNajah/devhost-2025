@@ -2,12 +2,19 @@ import { adminDb } from "@/firebase/admin";
 import { verifyToken } from "@/lib/verify-token";
 import { NextRequest, NextResponse } from "next/server";
 import { FieldValue } from "firebase-admin/firestore";
+import { regClosed } from "@/assets/data/config";
 
 export async function POST(req: NextRequest) {
   try {
     const decoded = await verifyToken(req);
     if (!decoded)
       return NextResponse.json({ error: "Invalid token" }, { status: 401 });
+
+    if (regClosed)
+      return NextResponse.json(
+        { error: "Registrations Ended" },
+        { status: 400 },
+      );
 
     const { email, name } = decoded;
 
