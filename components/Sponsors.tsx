@@ -19,16 +19,16 @@ const titleSponsor = {
 //   href: "https://eg.com",
 // };
 
-const goodwillSponsor = {
-  src: "/sponsors/Wizdom.png",
-  alt: "Goodwill Sponsor",
-  href: "https://www.wizx.org/",
-};
+// const goodwillSponsor = {
+//   src: "/sponsors/Wizdom.png",
+//   alt: "Goodwill Sponsor",
+//   href: "https://www.wizx.org/",
+// };
 
-const otherSponsors = [
-  { src: "/sponsors/EG.png", alt: "Company 1", href: "https://company1.com" },
-  { src: "/sponsors/EG.png", alt: "Company 2", href: "https://company2.com" },
-];
+// const otherSponsors = [
+//   { src: "/sponsors/EG.png", alt: "Company 1", href: "https://company1.com" },
+//   { src: "/sponsors/EG.png", alt: "Company 2", href: "https://company2.com" },
+// ];
 
 export default function SponsorsLogo() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -100,7 +100,7 @@ export default function SponsorsLogo() {
           </div>
 
           {/* Goodwill Sponsor */}
-          <div className="flex flex-col items-center gap-3">
+          {/* <div className="flex flex-col items-center gap-3">
             <a
               href={goodwillSponsor.href}
               target="_blank"
@@ -117,7 +117,7 @@ export default function SponsorsLogo() {
             <p className="font-orbitron text-primary text-base uppercase">
               Goodwill Sponsor
             </p>
-          </div>
+          </div> */}
         </div>
 
         {/* <div

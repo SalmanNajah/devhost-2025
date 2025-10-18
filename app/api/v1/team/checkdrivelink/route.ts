@@ -1,3 +1,4 @@
+import { regClosed } from "@/assets/data/config";
 import { NextRequest, NextResponse } from "next/server";
 
 type ResponseData =
@@ -15,6 +16,12 @@ export async function POST(
   try {
     const body = await request.json();
     const { driveLink } = body;
+
+    if (regClosed)
+      return NextResponse.json(
+        { error: "Registrations Ended" },
+        { status: 400 },
+      );
 
     if (!driveLink || typeof driveLink !== "string") {
       return NextResponse.json(
