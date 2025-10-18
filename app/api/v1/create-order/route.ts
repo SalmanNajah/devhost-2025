@@ -1,9 +1,8 @@
-// create-order route (server)
-
 import { NextResponse } from "next/server";
-import { Cashfree, CFEnvironment, CreateOrderRequest } from "cashfree-pg";
+import { CreateOrderRequest } from "cashfree-pg";
 import { adminDb } from "@/firebase/admin";
 import { eventDetails } from "@/assets/data/eventPayment";
+import { cashfree } from "@/lib/cashfree";
 
 export async function POST(req: Request) {
   try {
@@ -71,33 +70,12 @@ export async function POST(req: Request) {
         customer_name: customerName,
         customer_email: customerEmail,
         customer_phone: customerPhone,
+        customer_uid: customerId,
       },
       order_meta: {
         return_url: `${redirectUrl}?order_id={order_id}`,
       },
     };
-
-    const clientId =
-      process.env.CASHFREE_CLIENT_ID ||
-      process.env.NEXT_PUBLIC_CASHFREE_CLIENT_ID;
-    const clientSecret =
-      process.env.CASHFREE_CLIENT_SECRET ||
-      process.env.NEXT_PUBLIC_CASHFREE_CLIENT_SECRET;
-
-    if (!clientId || !clientSecret) {
-      console.error("Missing Cashfree credentials.");
-      return NextResponse.json(
-        { error: "Missing Cashfree credentials" },
-        { status: 500 },
-      );
-    }
-
-    const env =
-      process.env.NEXT_PUBLIC_CASHFREE_MODE === "production"
-        ? CFEnvironment.PRODUCTION
-        : CFEnvironment.SANDBOX;
-
-    const cashfree = new Cashfree(env, clientId, clientSecret);
 
     const response = await cashfree.PGCreateOrder(orderRequest);
 
