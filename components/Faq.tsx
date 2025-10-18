@@ -42,7 +42,7 @@ const faqData = [
   {
     question: "What resources will be provided during the hackathon?",
     answer:
-      "We provide WiFi, power outlets, meals, snacks, development tools access, API keys, and technical support throughout the event.",
+      "We provide WiFi, power outlets, meals, snacks and technical support throughout the event.",
   },
   {
     question: "How can I stay informed about event updates and announcements?",
