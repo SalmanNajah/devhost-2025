@@ -177,6 +177,14 @@ export default function TeamLeaderView({
           {/* ==== Actions Section ==== */}
           <div>
             <h3 className="font-orbitron text-primary mb-3 text-lg">Actions</h3>
+            <p className="text-primary/80 font pb-3 text-sm">
+              Drive link must include your{" "}
+              <span className="text-primary font-semibold">
+                abstract presentation
+              </span>{" "}
+              as per the format specified below.
+            </p>
+
             <div className="space-y-3">
               {team.finalized && team.drive_link ? (
                 <ClippedButton

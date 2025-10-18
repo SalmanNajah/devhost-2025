@@ -26,7 +26,6 @@ export default function Hero() {
     } else {
       try {
         await signInWithGoogle();
-        router.push("/profile");
       } catch (error) {
         console.error("Sign in failed:", error);
       }
@@ -120,7 +119,7 @@ export default function Hero() {
           <DecryptText
             text="Scroll to Explore"
             className="text-sm sm:text-lg"
-            startDelayMs={1800}
+            startDelayMs={200}
             trailSize={4}
             flickerIntervalMs={50}
             revealDelayMs={120}

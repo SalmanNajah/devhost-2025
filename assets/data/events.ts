@@ -1,11 +1,3 @@
-export const groupEventMaxMembers: Record<number, number> = {
-  1: 4,
-  2: 3,
-  3: 3,
-  4: 2,
-  5: 3,
-};
-
 export const events = [
   {
     id: 1,
@@ -84,7 +76,7 @@ export const events = [
     date: "All 3 days",
     time: "9:00 AM",
     organizer: "TBA",
-    contact: "later",
+    contact: "TBA",
     image: "/event/blazingfingers.webp",
   },
   {
@@ -96,7 +88,7 @@ export const events = [
     date: "All 3 days",
     time: "9:00 AM",
     organizer: "TBA",
-    contact: "later",
+    contact: "TBA",
     image: "/event/speedcuber.webp",
   },
 ];

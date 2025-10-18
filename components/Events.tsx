@@ -5,106 +5,13 @@ import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import DecryptText from "./animated/TextAnimation";
-import Link from "next/link";
+//import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ClippedButton } from "./ClippedButton";
+import { events } from "@/assets/data/events";
+import { eventDetails } from "@/assets/data/eventPayment";
 
 gsap.registerPlugin(ScrollTrigger);
-
-const events = [
-  {
-    id: 1,
-    title: "Loot & Load",
-    tagline: "Battle it out in BGMI",
-    description:
-      "Compete with the best teams in a high stakes BGMI tournament.",
-    date: "7 Nov",
-    time: "9:00 AM onwards",
-    organizer: "Yishith",
-    contact: "+91 9964057549",
-    image: "/event/lootnlead.webp",
-  },
-  {
-    id: 2,
-    title: "R00TQuest",
-    tagline: "Crack the code. Capture the flag.",
-    description:
-      "Test your cybersecurity skills in a capture-the-flag challenge.",
-    date: "7 Nov",
-    time: "11:00 - 12:30",
-    organizer: "Koshin",
-    contact: "+91 7899715941",
-    image: "/event/rootquest.webp",
-  },
-  {
-    id: 3,
-    title: "How I Met My Investor",
-    tagline: "Pitch. Persuade. Prevail.",
-    description: "Pitch your innovative tech ideas to potential investors.",
-    date: "7 Nov",
-    time: "11:00 - 12:30",
-    organizer: "Varsha",
-    contact: "+91 7022709062",
-    image: "/event/howimetmyinvestor.webp",
-  },
-  {
-    id: 4,
-    title: "Oh My Grid!",
-    tagline: "Untangle the CSS chaos",
-    description: "Showcase your frontend magic in a CSS battle",
-    date: "7 Nov",
-    time: "3:00 - 5:00",
-    organizer: "Manvitha",
-    contact: "+91 9686515869",
-    image: "/event/ohmygrid.webp",
-  },
-  {
-    id: 5,
-    title: "O(n)Slaught",
-    tagline: "Compete. Solve. Dominate.",
-    description:
-      "Take part in a competitive programming battle to showcase your problem solving skills.",
-    date: "7 Nov",
-    time: "3:00 - 5:00",
-    organizer: "Sthuthi",
-    contact: "+91 7795009031",
-    image: "/event/onslaught.webp",
-  },
-  {
-    id: 6,
-    title: "Tech-Tac-Toe",
-    tagline: "Think fast. Play smarter.",
-    description: "Solve, strategize, and strike the winning line",
-    date: "8 Nov",
-    time: "9:00 - 10:30",
-    organizer: "Hitha",
-    contact: "+91 9740451519",
-    image: "/event/techtactoe.webp",
-  },
-  {
-    id: 7,
-    title: "Blazing Fingers",
-    tagline: "Fingers on fire.",
-    description: "Compete to showcase your typing speed and accuracy",
-    date: "All 3 days",
-    time: "9:00 AM",
-    organizer: "TBA",
-    contact: "later",
-    image: "/event/blazingfingers.webp",
-  },
-  {
-    id: 8,
-    title: "Speed Cuber",
-    tagline: "Twist. Turn. Solve.",
-    description:
-      "Show your cube-solving speed in a high-pressure cubing competition.",
-    date: "All 3 days",
-    time: "9:00 AM",
-    organizer: "TBA",
-    contact: "later",
-    image: "/event/speedcuber.webp",
-  },
-];
 
 export default function Events() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -151,8 +58,8 @@ export default function Events() {
   }, []);
 
   function onCardClick(eventId: number) {
-    // router.push(`/events/${eventId}`);
-    router.push(`/register`);
+    router.push(`/events/${eventId}`);
+    // router.push(`/register`);
   }
 
   return (
@@ -208,7 +115,6 @@ export default function Events() {
                 clipPath:
                   "polygon(20px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px)",
               }}
-              onClick={() => onCardClick(event.id)}
             >
               <div
                 className="relative z-10 m-[2px] flex h-full flex-col p-4 sm:flex-row"
@@ -270,6 +176,20 @@ export default function Events() {
                         </span>
                         {event.contact}
                       </p>
+                      {!noRegister && (
+                        <p className="flex items-baseline gap-2">
+                          <span className="mr-1 font-semibold text-[#b4ff39]">
+                            Amount:
+                          </span>
+                          <span className="text-sm text-gray-400 line-through">
+                            ₹{eventDetails[event.id].amount + 50}
+                          </span>
+                          <span className="font-semibold text-[#b4ff39]">
+                            ₹{eventDetails[event.id].amount}
+                          </span>
+                          / team
+                        </p>
+                      )}
                     </div>
                   </div>
 
@@ -279,8 +199,9 @@ export default function Events() {
                         innerBg="bg-primary"
                         textColor="text-black"
                         className="font-orbitron flex w-full items-center justify-center gap-2 px-6 py-2 text-center text-xs font-bold tracking-wider uppercase"
+                        onClick={() => onCardClick(event.id)}
                       >
-                        <Link href="/register">Register</Link>
+                        Register
                       </ClippedButton>
                     </div>
                   )}
