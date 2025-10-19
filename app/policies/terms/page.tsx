@@ -12,7 +12,7 @@ export default function TermsAndConditionsPage() {
         acceptance of those changes.
       </p>
 
-      <h2 className="text-2xl font-orbitron mt-6 mb-2 text-primary">
+      <h2 className="font-orbitron text-primary mt-6 mb-2 text-2xl">
         1. Eligibility
       </h2>
       <p>
@@ -25,7 +25,7 @@ export default function TermsAndConditionsPage() {
         genuine.
       </p>
 
-      <h2 className="text-2xl font-orbitron mt-6 mb-2 text-primary">
+      <h2 className="font-orbitron text-primary mt-6 mb-2 text-2xl">
         2. Membership
       </h2>
       <p>
@@ -37,7 +37,7 @@ export default function TermsAndConditionsPage() {
         experience.
       </p>
 
-      <h2 className="text-2xl font-orbitron mt-6 mb-2 text-primary">
+      <h2 className="font-orbitron text-primary mt-6 mb-2 text-2xl">
         3. Communication
       </h2>
       <p>
@@ -47,7 +47,7 @@ export default function TermsAndConditionsPage() {
         communication will be through SOSC’s verified channels and platforms.
       </p>
 
-      <h2 className="text-2xl font-orbitron mt-6 mb-2 text-primary">
+      <h2 className="font-orbitron text-primary mt-6 mb-2 text-2xl">
         4. Contributions and Submissions
       </h2>
       <p>
@@ -66,7 +66,7 @@ export default function TermsAndConditionsPage() {
         participation.
       </p>
 
-      <h2 className="text-2xl font-orbitron mt-6 mb-2 text-primary">
+      <h2 className="font-orbitron text-primary mt-6 mb-2 text-2xl">
         5. Event Participation
       </h2>
       <p>
@@ -76,7 +76,7 @@ export default function TermsAndConditionsPage() {
         communication and refunds (if applicable) will be provided.
       </p>
 
-      <h2 className="text-2xl font-orbitron mt-6 mb-2 text-primary">
+      <h2 className="font-orbitron text-primary mt-6 mb-2 text-2xl">
         6. Code of Conduct
       </h2>
       <p>
@@ -87,7 +87,7 @@ export default function TermsAndConditionsPage() {
         removal from all SOSC platforms and events.
       </p>
 
-      <h2 className="text-2xl font-orbitron mt-6 mb-2 text-primary">
+      <h2 className="font-orbitron text-primary mt-6 mb-2 text-2xl">
         7. Limitation of Liability
       </h2>
       <p>

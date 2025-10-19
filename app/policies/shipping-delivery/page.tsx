@@ -21,6 +21,17 @@ export default function ShippingDeliveryPolicy() {
         situations. In such cases, a full refund will be issued to the original
         payment method.
       </p>
+
+      <h2 className="mt-8 text-lg font-semibold text-primary">
+        Contact Us
+      </h2>
+      <p className="mt-2 text-sm text-white">
+        For any questions or concerns, please contact:
+      </p>
+      <ul className="mt-2 text-sm text-white space-y-1">
+        <li><strong>Name:</strong> Vivek Neeralagi</li>
+        <li><strong>Phone:</strong> +918169838688</li>
+      </ul>
     </PolicyTemplate>
   );
 }
