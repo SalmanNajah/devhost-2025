@@ -229,6 +229,15 @@ const Footer = () => {
                     Code of conduct
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    href="/policies/about-us"
+                    target="_blank"
+                    className="underlined_link transition-colors duration-200 hover:text-[#B4FF39] hover:drop-shadow-[0_0_5px_#B4FF39]"
+                  >
+                    About Us
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>

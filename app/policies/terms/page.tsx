@@ -1,3 +1,4 @@
+import Link from "next/link";
 import PolicyTemplate from "../base/PolicyTemplate";
 
 export default function TermsAndConditionsPage() {
@@ -19,7 +20,7 @@ export default function TermsAndConditionsPage() {
         SOSC is a student-led, non-profit community that welcomes participation
         from students, developers, and open-source enthusiasts across all
         backgrounds. You do not need to be an official member to attend our
-        events or access our initiatives, anyone with a passion for technology
+        events or access our initiatives—anyone with a passion for technology
         and collaboration is welcome. By registering for or engaging in SOSC
         activities, you confirm that the information you provide is accurate and
         genuine.
@@ -104,11 +105,29 @@ export default function TermsAndConditionsPage() {
         developers to grow and innovate together.
       </p>
 
-      <div className="mt-6 flex items-center gap-2">
-        <input type="checkbox" id="accept" name="accept" className="h-4 w-4" />
-        <label htmlFor="accept" className="text-gray-400">
-          I have read and accept the Terms & Conditions.
-        </label>
+      {/* Links to other policies */}
+      <div className="mt-10 border-t border-gray-700 pt-6 text-sm text-gray-400">
+        <p className="text-center italic mb-2">Related Policies</p>
+        <div className="flex flex-wrap justify-center gap-4 font-orbitron text-xs tracking-widest">
+          <Link
+            href="/policies/privacy-policy"
+            className="text-primary hover:underline"
+          >
+            Privacy Policy
+          </Link>
+          <Link
+            href="/policies/refund-cancellation"
+            className="text-primary hover:underline"
+          >
+            Refund & Cancellation
+          </Link>
+          <Link
+            href="/policies/shipping-delivery"
+            className="text-primary hover:underline"
+          >
+            Shipping & Delivery
+          </Link>
+        </div>
       </div>
     </PolicyTemplate>
   );
