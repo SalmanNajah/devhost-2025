@@ -5,6 +5,7 @@ import {
   useCallback,
   CSSProperties,
   ReactNode,
+  useRef,
 } from "react";
 import { Input } from "@/components/ui/input";
 import { useAuth } from "@/context/AuthContext";
@@ -107,15 +108,15 @@ export default function EventRegistration({ eventId }: Props) {
     action: () => void;
   }>(null);
 
-  // const firedRef = useRef(false);
+  const firedRef = useRef(false);
 
-  // useEffect(() => {
-  //   if (!userLoading && !user && !firedRef.current) {
-  //     toast.error("Please sign in");
-  //     router.push("/");
-  //     firedRef.current = true;
-  //   }
-  // }, [user, userLoading, router]);
+  useEffect(() => {
+    if (!userLoading && !user && !firedRef.current) {
+      toast.error("Please sign in");
+      // router.push("/");
+      firedRef.current = true;
+    }
+  }, [user, userLoading, router]);
 
   const [payWarningDialog, setPayWarningDialog] = useState(false);
 
@@ -229,12 +230,12 @@ export default function EventRegistration({ eventId }: Props) {
   const event = events.find((event) => event.id === parseInt(eventId, 10));
   const minMembers = eventDetails[parseInt(eventId, 10)].min;
   const maxMembers = eventDetails[parseInt(eventId, 10)].max;
-  const membersCount = team?.members.length ?? 0;
-  const canPay =
-    team &&
-    team.leaderEmail === userEmail &&
-    !team.paymentDone &&
-    membersCount >= minMembers;
+  // const membersCount = team?.members.length ?? 0;
+  // const canPay =
+  //   team &&
+  //   team.leaderEmail === userEmail &&
+  //   !team.paymentDone &&
+  //   membersCount >= minMembers;
 
   const handleDisband = () => {
     setConfirmDialog({
@@ -305,7 +306,7 @@ export default function EventRegistration({ eventId }: Props) {
   const polygonClip =
     "polygon(12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px)";
 
-  const amount = eventDetails[parseInt(eventId)].amount;
+  // const amount = eventDetails[parseInt(eventId)].amount;
 
   return (
     <div className="max-w-full px-2 sm:px-4">
@@ -370,9 +371,14 @@ export default function EventRegistration({ eventId }: Props) {
           style={{ clipPath: polygonClip }}
         >
           {!userEmail && (
-            <p className="text-center text-sm text-gray-300">
-              Please log in to continue.
-            </p>
+            <div>
+              <p className="pb-4 text-center text-sm text-gray-300">
+                Please log in to continue.
+              </p>
+              <ClippedButton onClick={() => router.push("/")}>
+                Back
+              </ClippedButton>
+            </div>
           )}
 
           {/* Step 1: Create/Join Team */}
@@ -432,6 +438,15 @@ export default function EventRegistration({ eventId }: Props) {
                   </ClippedCard>
                 </div>
               </div>
+              <p className="text-center italic text-[11px]">
+              <span
+              onClick={() => router.push("/policies/terms")}
+              className="cursor-pointer text-primary underline"
+              >
+                Terms and Conditions
+              </span>{" "}
+              <span className="text-gray-400">applied*</span>
+              </p>
             </div>
           )}
 
@@ -512,33 +527,45 @@ export default function EventRegistration({ eventId }: Props) {
 
                 {/* Leader Actions */}
                 {team.leaderEmail === userEmail && !team.paymentDone && (
-                  <div className="flex flex-col gap-4 pt-2 sm:flex-row">
-                    <ClippedCard
-                      innerBg="bg-primary"
-                      className="flex-1 hover:brightness-95"
-                    >
-                      <Button
-                        onClick={() => setPayWarningDialog(true)}
-                        disabled={actionLoading}
-                        className="h-fit w-full cursor-pointer rounded-none px-4 py-2 text-xs font-bold tracking-widest text-black uppercase"
-                      >
-                        Confirm Payment
-                      </Button>
-                    </ClippedCard>
-                    <ClippedCard
-                      innerBg="bg-black"
-                      className="flex-1 hover:brightness-95"
-                    >
-                      <Button
-                        onClick={handleDisband}
-                        disabled={actionLoading}
-                        className="h-fit w-full cursor-pointer rounded-none bg-black px-4 py-2 text-xs font-bold tracking-widest text-white uppercase hover:bg-black"
-                      >
-                        Disband Team
-                      </Button>
-                    </ClippedCard>
-                  </div>
-                )}
+              <div className="flex flex-col items-center gap-2 pt-2">
+              <div className="flex w-full flex-col gap-4 sm:flex-row">
+                <ClippedCard
+                  innerBg="bg-primary"
+                  className="flex-1 hover:brightness-95"
+                >
+                  <Button
+                    onClick={() => setPayWarningDialog(true)}
+                    disabled={actionLoading}
+                    className="h-fit w-full cursor-pointer rounded-none px-4 py-2 text-xs font-bold tracking-widest text-black uppercase"
+                  >
+                    Confirm Payment
+                  </Button>
+                </ClippedCard>
+                <ClippedCard
+                  innerBg="bg-black"
+                  className="flex-1 hover:brightness-95"
+                >
+                  <Button
+                    onClick={handleDisband}
+                    disabled={actionLoading}
+                    className="h-fit w-full cursor-pointer rounded-none bg-black px-4 py-2 text-xs font-bold tracking-widest text-white uppercase hover:bg-black"
+                  >
+                    Disband Team
+                  </Button>
+                </ClippedCard>
+              </div>
+   
+              <p className="text-center italic text-[11px]">
+              <span
+              onClick={() => router.push("/policies/terms")}
+              className="cursor-pointer text-primary underline"
+              >
+                Terms and Conditions
+              </span>{" "}
+              <span className="text-gray-400">applied*</span>
+              </p>
+              </div>
+            )}
 
                 {/* Member Leave Option */}
                 {team.leaderEmail !== userEmail && !team.registered && (

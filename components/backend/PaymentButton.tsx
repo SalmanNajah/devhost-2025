@@ -91,8 +91,15 @@ export default function PaymentButton({
       const order: {
         paymentSessionId?: string;
         orderId?: string;
+        status?: "SUCCESS" | "PENDING" | "FAIL";
         error?: string;
       } = await createRes.json();
+
+      if (order?.status && order.status === "SUCCESS") {
+        toast.success("Payment already successful!");
+        window.location.reload();
+        return;
+      }
 
       if (!order || !order.paymentSessionId) {
         toast.error("Order creation failed: " + (order?.error || "unknown"));
@@ -126,7 +133,7 @@ export default function PaymentButton({
     <button
       onClick={startPayment}
       disabled={disabled || loading}
-      className="bg-primary font-orbitron rounded px-4 py-2 text-xs font-bold tracking-widest text-black uppercase disabled:cursor-not-allowed disabled:opacity-50"
+      className="bg-primary font-orbitron w-full rounded px-4 py-2 text-xs font-bold tracking-widest text-black uppercase disabled:cursor-not-allowed disabled:opacity-50"
     >
       {loading ? "Processing..." : `Pay Rs. ${amount}`}
     </button>

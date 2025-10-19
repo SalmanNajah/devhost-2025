@@ -1,8 +1,10 @@
+// app/api/create-order/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { Cashfree, CFEnvironment, CreateOrderRequest } from "cashfree-pg";
 import { adminDb, verifySessionCookie } from "@/firebase/admin";
 import { eventDetails } from "@/assets/data/eventPayment";
 import { cookies } from "next/headers";
+import { verifyAndUpdateOrder } from "@/lib/paymentUtils";
 
 export async function POST(req: NextRequest) {
   try {
@@ -32,34 +34,30 @@ export async function POST(req: NextRequest) {
       );
 
     const uid = decoded.uid;
-
     const profileRef = adminDb.collection("users").doc(uid);
     const profileSnapshot = await profileRef.get();
 
-    if (!profileSnapshot.exists) {
+    if (!profileSnapshot.exists)
       return NextResponse.json(
         { error: "User profile not found" },
         { status: 404 },
       );
-    }
 
     const userProfile = profileSnapshot.data();
     const name = userProfile?.name;
     const phone = userProfile?.phone;
 
-    if (!name || !phone) {
+    if (!name || !phone)
       return NextResponse.json(
         { error: "Invalid user profile data" },
         { status: 400 },
       );
-    }
 
-    if (!eventId || !(eventId in eventDetails)) {
+    if (!eventId || !(eventId in eventDetails))
       return NextResponse.json(
         { error: "Invalid or missing event ID" },
         { status: 400 },
       );
-    }
 
     const amount = eventDetails[parseInt(eventId)].amount;
     const parsedAmount =
@@ -72,6 +70,29 @@ export async function POST(req: NextRequest) {
         { error: "Invalid redirectUrl" },
         { status: 400 },
       );
+
+    if (teamId) {
+      const regRef = adminDb.collection("registrations").doc(teamId);
+      const regSnap = await regRef.get();
+
+      if (regSnap.exists) {
+        const regData = regSnap.data();
+        if (regData?.pendingOrderId) {
+          const prevOrderId = regData.pendingOrderId;
+          const status = await verifyAndUpdateOrder(prevOrderId, {
+            quickCheck: true,
+          });
+
+          if (status === "SUCCESS") {
+            return NextResponse.json({
+              message: "Existing order already completed",
+              orderId: prevOrderId,
+              status: "SUCCESS",
+            });
+          }
+        }
+      }
+    }
 
     const chargeAmount =
       eventId === "1"
@@ -102,13 +123,11 @@ export async function POST(req: NextRequest) {
       process.env.CASHFREE_CLIENT_SECRET ||
       process.env.NEXT_PUBLIC_CASHFREE_CLIENT_SECRET;
 
-    if (!clientId || !clientSecret) {
-      console.error("Missing Cashfree credentials.");
+    if (!clientId || !clientSecret)
       return NextResponse.json(
         { error: "Missing Cashfree credentials" },
         { status: 500 },
       );
-    }
 
     const env =
       process.env.NEXT_PUBLIC_CASHFREE_MODE === "production"
@@ -119,30 +138,22 @@ export async function POST(req: NextRequest) {
     const response = await cashfree.PGCreateOrder(orderRequest);
 
     if (teamId) {
-      try {
-        const ref = adminDb.collection("registrations").doc(teamId);
-        const snap = await ref.get();
-        if (snap.exists) {
-          await ref.update({
-            pendingOrderId: orderId,
-            pendingOrderAmount: response?.data?.order_amount ?? chargeAmount,
-            pendingOrderCreatedAt: new Date().toISOString(),
-          });
-        } else {
-          console.warn(`Registration doc not found for teamId=${teamId}`);
-        }
-      } catch (e) {
-        console.error("Failed to set pendingOrderId on registration:", e);
+      const ref = adminDb.collection("registrations").doc(teamId);
+      const snap = await ref.get();
+      if (snap.exists) {
+        await ref.update({
+          pendingOrderId: orderId,
+          pendingOrderAmount: response?.data?.order_amount ?? chargeAmount,
+          pendingOrderCreatedAt: new Date().toISOString(),
+        });
       }
     }
 
-    if (!response?.data?.payment_session_id) {
-      console.error("Cashfree response missing data:", response);
+    if (!response?.data?.payment_session_id)
       return NextResponse.json(
-        { error: "Unexpected response" },
+        { error: "Unexpected Cashfree response" },
         { status: 500 },
       );
-    }
 
     return NextResponse.json({
       orderId,
