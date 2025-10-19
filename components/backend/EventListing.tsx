@@ -25,7 +25,7 @@ export default function EventListing() {
           innerBg="bg-black"
           outerBg="bg-black"
           textColor="text-white"
-          onClick={() => router.push("/profile")}
+          onClick={() => router.push("/")}
         >
           Back
         </ClippedButton>

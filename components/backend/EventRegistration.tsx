@@ -5,6 +5,7 @@ import {
   useCallback,
   CSSProperties,
   ReactNode,
+  useRef,
 } from "react";
 import { Input } from "@/components/ui/input";
 import { useAuth } from "@/context/AuthContext";
@@ -107,15 +108,15 @@ export default function EventRegistration({ eventId }: Props) {
     action: () => void;
   }>(null);
 
-  // const firedRef = useRef(false);
+  const firedRef = useRef(false);
 
-  // useEffect(() => {
-  //   if (!userLoading && !user && !firedRef.current) {
-  //     toast.error("Please sign in");
-  //     router.push("/");
-  //     firedRef.current = true;
-  //   }
-  // }, [user, userLoading, router]);
+  useEffect(() => {
+    if (!userLoading && !user && !firedRef.current) {
+      toast.error("Please sign in");
+      // router.push("/");
+      firedRef.current = true;
+    }
+  }, [user, userLoading, router]);
 
   const [payWarningDialog, setPayWarningDialog] = useState(false);
 
@@ -370,9 +371,14 @@ export default function EventRegistration({ eventId }: Props) {
           style={{ clipPath: polygonClip }}
         >
           {!userEmail && (
-            <p className="text-center text-sm text-gray-300">
-              Please log in to continue.
-            </p>
+            <div>
+              <p className="pb-4 text-center text-sm text-gray-300">
+                Please log in to continue.
+              </p>
+              <ClippedButton onClick={() => router.push("/")}>
+                Back
+              </ClippedButton>
+            </div>
           )}
 
           {/* Step 1: Create/Join Team */}

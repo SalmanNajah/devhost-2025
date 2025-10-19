@@ -1,18 +1,18 @@
 import EventListing from "@/components/backend/EventListing";
-import { verifySessionCookie } from "@/firebase/admin";
-import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
+// import { verifySessionCookie } from "@/firebase/admin";
+// import { cookies } from "next/headers";
+// import { redirect } from "next/navigation";
 
 export default async function EventsPage() {
-  const cookieStore = await cookies();
-  const session = cookieStore.get("__session")?.value;
-  if (!session) redirect("/");
+  // const cookieStore = await cookies();
+  // const session = cookieStore.get("__session")?.value;
+  // if (!session) redirect("/");
 
-  try {
-    await verifySessionCookie(session);
-  } catch {
-    redirect("/");
-  }
+  // try {
+  //   await verifySessionCookie(session);
+  // } catch {
+  //   redirect("/");
+  // }
 
   return <EventListing />;
 }

@@ -37,15 +37,17 @@ export default function RefundCancellationPolicy() {
         cancellations cannot be made, although refunds may still be possible in
         certain cases before the event begins.
       </p>
-      <h2 className="mt-8 text-lg font-semibold text-primary">
-        Contact Us
-      </h2>
+      <h2 className="text-primary mt-8 text-lg font-semibold">Contact Us</h2>
       <p className="mt-2 text-sm text-white">
         For any questions or concerns, please contact:
       </p>
-      <ul className="mt-2 text-sm text-white space-y-1">
-        <li><strong>Name:</strong> Vivek Neeralagi</li>
-        <li><strong>Phone:</strong> +918169838688</li>
+      <ul className="mt-2 space-y-1 text-sm text-white">
+        <li>
+          <strong>Name:</strong> Vivek Neeralagi
+        </li>
+        <li>
+          <strong>Phone:</strong> +918169838688
+        </li>
       </ul>
     </PolicyTemplate>
   );
