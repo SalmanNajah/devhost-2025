@@ -129,10 +129,10 @@ export default function ProfileClient({ profile }: { profile: Profile }) {
                 <span className="font-semibold text-white">
                   September 30, 2025
                 </span> */}
-                Registration Deadline Extended to{" "}
+                {/* Registration Deadline Extended to{" "}
                 <span className="font-bold text-white">
                   October 15, 2025
-                </span>{" "}
+                </span>{" "} */}
               </p>
               <ClippedButton
                 innerBg="bg-primary"
@@ -145,7 +145,8 @@ export default function ProfileClient({ profile }: { profile: Profile }) {
                   }
                   className="inline-flex w-full items-center justify-center py-2"
                 >
-                  {profile?.team_id ? "Visit Dashboard" : "Join Hackathon"}
+                  {/* {profile?.team_id ? "Visit Dashboard" : "Join Hackathon"} */}
+                  Visit Dashboard
                 </Link>
               </ClippedButton>
             </div>
