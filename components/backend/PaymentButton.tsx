@@ -91,8 +91,15 @@ export default function PaymentButton({
       const order: {
         paymentSessionId?: string;
         orderId?: string;
+        status?: "SUCCESS" | "PENDING" | "FAIL";
         error?: string;
       } = await createRes.json();
+
+      if (order?.status && order.status === "SUCCESS") {
+        toast.success("Payment already successful!");
+        window.location.reload();
+        return;
+      }
 
       if (!order || !order.paymentSessionId) {
         toast.error("Order creation failed: " + (order?.error || "unknown"));

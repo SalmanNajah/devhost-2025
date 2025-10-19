@@ -230,12 +230,12 @@ export default function EventRegistration({ eventId }: Props) {
   const event = events.find((event) => event.id === parseInt(eventId, 10));
   const minMembers = eventDetails[parseInt(eventId, 10)].min;
   const maxMembers = eventDetails[parseInt(eventId, 10)].max;
-  const membersCount = team?.members.length ?? 0;
-  const canPay =
-    team &&
-    team.leaderEmail === userEmail &&
-    !team.paymentDone &&
-    membersCount >= minMembers;
+  // const membersCount = team?.members.length ?? 0;
+  // const canPay =
+  //   team &&
+  //   team.leaderEmail === userEmail &&
+  //   !team.paymentDone &&
+  //   membersCount >= minMembers;
 
   const handleDisband = () => {
     setConfirmDialog({
@@ -306,7 +306,7 @@ export default function EventRegistration({ eventId }: Props) {
   const polygonClip =
     "polygon(12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px)";
 
-  const amount = eventDetails[parseInt(eventId)].amount;
+  // const amount = eventDetails[parseInt(eventId)].amount;
 
   return (
     <div className="max-w-full px-2 sm:px-4">
