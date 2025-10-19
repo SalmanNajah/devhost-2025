@@ -75,8 +75,8 @@ export const events = [
     description: "Compete to showcase your typing speed and accuracy",
     date: "All 3 days",
     time: "9:00 AM",
-    organizer: "TBA",
-    contact: "TBA",
+    organizer: "Mariyam Heena",
+    contact: "+91 9633500711",
     image: "/event/blazingfingers.webp",
   },
   {
@@ -87,8 +87,8 @@ export const events = [
       "Show your cube-solving speed in a high-pressure cubing competition.",
     date: "All 3 days",
     time: "9:00 AM",
-    organizer: "TBA",
-    contact: "TBA",
+    organizer: "Zaynah",
+    contact: "+91 7795667280",
     image: "/event/speedcuber.webp",
   },
 ];
