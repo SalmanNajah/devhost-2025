@@ -22,7 +22,7 @@ const speakers = [
   },
   {
     id: 2,
-    name: "P. Ananthakrishnan Potti",
+    name: "N. Ananthakrishnan Potti",
     title: "Leading Security Operations @ OLA",
     bio: "Security Operations Engineer II at OLA with expertise in threat detection, incident response, and cloud security. A certified ethical hacker and mentor under Kerala Startup Mission, passionate about cybersecurity education.",
     img: "/speakers/potti.jpg",

@@ -101,7 +101,7 @@ export const markers = [
         icon: <MicVocal className="h-auto sm:w-8" />,
         title: "DevTalk 3",
         description: "Technical talk session.",
-        speaker: "P. Ananthakrishnan Potti",
+        speaker: "N. Ananthakrishnan Potti",
         role: "Leading Security Operations @ OLA",
         venue: "TBA",
       },
