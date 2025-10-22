@@ -99,7 +99,7 @@ export const markers = [
         time: "09:00",
         displayTime: "9:00 AM - 9:45 AM",
         icon: <MicVocal className="h-auto sm:w-8" />,
-        title: "DevTalk 3",
+        title: "The Cloud Isn't Safe — Until You Make It",
         description: "Technical talk session.",
         speaker: "N. Ananthakrishnan Potti",
         role: "Leading Security Operations @ OLA",
@@ -110,7 +110,7 @@ export const markers = [
         time: "10:00",
         displayTime: "10:00 AM - 10:45 AM",
         icon: <MicVocal className="h-auto sm:w-8" />,
-        title: "DevTalk 4",
+        title: "Building in Open Source: Collaborate, Contribute, Create",
         description:
           "Aakansha Doshi will share her journey and guide students on the technical and practical aspects of contributing to open source",
         speaker: "Aakansha Doshi",
