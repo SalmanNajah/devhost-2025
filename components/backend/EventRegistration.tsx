@@ -438,14 +438,14 @@ export default function EventRegistration({ eventId }: Props) {
                   </ClippedCard>
                 </div>
               </div>
-              <p className="text-center italic text-[11px]">
-              <span
-              onClick={() => router.push("/policies/terms")}
-              className="cursor-pointer text-primary underline"
-              >
-                Terms and Conditions
-              </span>{" "}
-              <span className="text-gray-400">applied*</span>
+              <p className="text-center text-[11px] italic">
+                <span
+                  onClick={() => router.push("/policies/terms")}
+                  className="text-primary cursor-pointer underline"
+                >
+                  Terms and Conditions
+                </span>{" "}
+                <span className="text-gray-400">applied*</span>
               </p>
             </div>
           )}
@@ -527,45 +527,45 @@ export default function EventRegistration({ eventId }: Props) {
 
                 {/* Leader Actions */}
                 {team.leaderEmail === userEmail && !team.paymentDone && (
-              <div className="flex flex-col items-center gap-2 pt-2">
-              <div className="flex w-full flex-col gap-4 sm:flex-row">
-                <ClippedCard
-                  innerBg="bg-primary"
-                  className="flex-1 hover:brightness-95"
-                >
-                  <Button
-                    onClick={() => setPayWarningDialog(true)}
-                    disabled={actionLoading}
-                    className="h-fit w-full cursor-pointer rounded-none px-4 py-2 text-xs font-bold tracking-widest text-black uppercase"
-                  >
-                    Confirm Payment
-                  </Button>
-                </ClippedCard>
-                <ClippedCard
-                  innerBg="bg-black"
-                  className="flex-1 hover:brightness-95"
-                >
-                  <Button
-                    onClick={handleDisband}
-                    disabled={actionLoading}
-                    className="h-fit w-full cursor-pointer rounded-none bg-black px-4 py-2 text-xs font-bold tracking-widest text-white uppercase hover:bg-black"
-                  >
-                    Disband Team
-                  </Button>
-                </ClippedCard>
-              </div>
-   
-              <p className="text-center italic text-[11px]">
-              <span
-              onClick={() => router.push("/policies/terms")}
-              className="cursor-pointer text-primary underline"
-              >
-                Terms and Conditions
-              </span>{" "}
-              <span className="text-gray-400">applied*</span>
-              </p>
-              </div>
-            )}
+                  <div className="flex flex-col items-center gap-2 pt-2">
+                    <div className="flex w-full flex-col gap-4 sm:flex-row">
+                      <ClippedCard
+                        innerBg="bg-primary"
+                        className="flex-1 hover:brightness-95"
+                      >
+                        <Button
+                          onClick={() => setPayWarningDialog(true)}
+                          disabled={actionLoading}
+                          className="h-fit w-full cursor-pointer rounded-none px-4 py-2 text-xs font-bold tracking-widest text-black uppercase"
+                        >
+                          Confirm Payment
+                        </Button>
+                      </ClippedCard>
+                      <ClippedCard
+                        innerBg="bg-black"
+                        className="flex-1 hover:brightness-95"
+                      >
+                        <Button
+                          onClick={handleDisband}
+                          disabled={actionLoading}
+                          className="h-fit w-full cursor-pointer rounded-none bg-black px-4 py-2 text-xs font-bold tracking-widest text-white uppercase hover:bg-black"
+                        >
+                          Disband Team
+                        </Button>
+                      </ClippedCard>
+                    </div>
+
+                    <p className="text-center text-[11px] italic">
+                      <span
+                        onClick={() => router.push("/policies/terms")}
+                        className="text-primary cursor-pointer underline"
+                      >
+                        Terms and Conditions
+                      </span>{" "}
+                      <span className="text-gray-400">applied*</span>
+                    </p>
+                  </div>
+                )}
 
                 {/* Member Leave Option */}
                 {team.leaderEmail !== userEmail && !team.registered && (

@@ -107,8 +107,8 @@ export default function TermsAndConditionsPage() {
 
       {/* Links to other policies */}
       <div className="mt-10 border-t border-gray-700 pt-6 text-sm text-gray-400">
-        <p className="text-center italic mb-2">Related Policies</p>
-        <div className="flex flex-wrap justify-center gap-4 font-orbitron text-xs tracking-widest">
+        <p className="mb-2 text-center italic">Related Policies</p>
+        <div className="font-orbitron flex flex-wrap justify-center gap-4 text-xs tracking-widest">
           <Link
             href="/policies/privacy-policy"
             className="text-primary hover:underline"
