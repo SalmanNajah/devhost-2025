@@ -143,7 +143,7 @@ export default function HackathonDashboardPage() {
         &gt; Secure your spot, review the rules, and get started with your team!
       </p>
 
-      {team?.shortlisted && (
+      {team?.shortlisted && team.team_leader_email === user.email && (
         <ClippedCard
           className="mx-auto mb-8 w-full max-w-4xl"
           innerBg="bg-[#101810]"
