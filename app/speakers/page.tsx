@@ -32,8 +32,8 @@ const speakers = [
   {
     id: 3,
     name: "Aakansha Doshi",
-    title: "Core Maintainer @ Project Excalidraw",
-    bio: "Principal Software Engineer at Prophecy and core maintainer of Excalidraw, with deep expertise in Canvas APIs and JavaScript. Advocate for open-source sustainability and community mentorship.",
+    title: "Open Source Enthusiast",
+    bio: "Aakansha is a Principal Software Engineer at Prophecy and a passionate contributor to Free and Open Source Software (FOSS). She's a core maintainer of projects like Excalidraw, react-tags, and mermaid-to-excalidraw, and more libraries. She loves exploring the internals of the Web and JavaScript while mentoring and supporting the open-source community.",
     img: "/speakers/aakansha.jpeg",
     link: "#",
     presence: {

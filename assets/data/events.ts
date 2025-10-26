@@ -27,7 +27,8 @@ export const events = [
     id: 3,
     title: "How I Met My Investor",
     tagline: "Pitch. Persuade. Prevail.",
-    description: "Pitch your innovative tech ideas to potential investors.",
+    description:
+      "Pitch your tech solution and prove its power to change the game.",
     date: "7 Nov",
     time: "11:00 - 12:30",
     organizer: "Varsha",
