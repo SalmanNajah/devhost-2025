@@ -49,7 +49,10 @@ export default function EventPaymentButton({
       if (result.status === "already_verified") {
         toast.info("This payment is already verified.");
       } else if (result.status === "inserted") {
-        toast.success("Payment recorded successfully!");
+        toast.success("Order placed successfully!");
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
       } else {
         toast.error(result.message || "Something went wrong.");
       }
@@ -72,7 +75,7 @@ export default function EventPaymentButton({
       />
       <input
         type="text"
-        placeholder="Enter UTR Number"
+        placeholder="Enter Transaction Number"
         value={utr}
         onChange={(e) => setUtr(e.target.value)}
         className="w-full rounded border border-gray-300 p-2 text-sm"
@@ -81,7 +84,7 @@ export default function EventPaymentButton({
       <button
         onClick={startPayment}
         disabled={disabled || loading}
-        className="bg-primary font-orbitron w-full rounded px-4 py-2 text-xs font-bold tracking-widest text-black uppercase disabled:cursor-not-allowed disabled:opacity-50"
+        className="bg-primary font-orbitron mt-2 w-full rounded px-4 py-2 text-xs font-bold tracking-widest text-black uppercase disabled:cursor-not-allowed disabled:opacity-50"
       >
         {loading ? "Processing..." : `Pay ₹${amount}`}
       </button>

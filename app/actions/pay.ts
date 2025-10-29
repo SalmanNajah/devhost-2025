@@ -32,7 +32,7 @@ export async function registerAndInsert(params: Params) {
 
   await doc.ref.update({
     registered: true,
-    paymentDone: false,
+    paymentDone: null,
   });
 
   // --- Google Sheets setup ---
@@ -49,7 +49,7 @@ export async function registerAndInsert(params: Params) {
   const sheetName = "Sheet1";
 
   const amount = eventDetails[parseInt(eventId)].amount ?? 0;
-  const verified = false;
+  const verified = "";
   const newRow = [team_id, leaderEmail, eventId, amount, upi_id, utr, verified];
 
   // --- Check if row already exists ---

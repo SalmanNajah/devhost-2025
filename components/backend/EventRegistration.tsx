@@ -29,6 +29,7 @@ import {
   AlertDialogCancel,
   AlertDialogAction,
 } from "@/components/ui/alert-dialog";
+import Image from "next/image";
 
 type Props = { eventId: string };
 
@@ -43,55 +44,98 @@ type TeamType = {
 type ConfirmDialogProps = {
   open: boolean;
   title: string;
-  description: React.ReactNode;
+  description?: React.ReactNode;
   confirmText?: string;
   cancelText?: string;
+  warning?: boolean;
   onConfirm?: () => void;
-  onCancel: () => void;
+  onCancel?: () => void;
   loading?: boolean;
-  children?: ReactNode;
+  eventId?: string;
+  children?: React.ReactNode;
 };
 
 function ConfirmDialog({
   open,
   title,
   description,
-  confirmText = "Are you sure?",
+  confirmText = "Confirm",
   cancelText = "Cancel",
+  warning = false,
   onConfirm,
   onCancel,
-  loading,
+  loading = false,
+  eventId,
   children,
 }: ConfirmDialogProps) {
+  const qrImage =
+    eventId === "1"
+      ? "/pay/qr-code_450.png"
+      : ["2", "3", "4", "5"].includes(eventId ?? "")
+        ? "/pay/qr-code_150.png"
+        : null;
+
   return (
-    <AlertDialog open={open} onOpenChange={(open) => !open && onCancel?.()}>
-      <AlertDialogContent className="border-primary border-2">
-        <AlertDialogHeader>
-          <AlertDialogTitle>{title}</AlertDialogTitle>
-          <AlertDialogDescription>{description}</AlertDialogDescription>
-        </AlertDialogHeader>
+    <AlertDialog open={open} onOpenChange={(state) => !state && onCancel?.()}>
+      <AlertDialogContent
+        className="border-primary max-h-[90vh] w-full max-w-md rounded-2xl border-2 bg-neutral-950 px-0 py-0 shadow-lg focus-visible:outline-none"
+        onWheel={(e) => e.stopPropagation()} // ✅ Allow internal scroll
+      >
+        {/* Scrollable inner container */}
+        <div className="scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-transparent max-h-[90vh] overflow-y-auto px-6 py-6">
+          <AlertDialogHeader className="text-center">
+            <AlertDialogTitle className="text-xl font-semibold text-white">
+              {title}
+            </AlertDialogTitle>
+            {description && (
+              <AlertDialogDescription className="mt-2 text-sm text-gray-400">
+                {description}
+              </AlertDialogDescription>
+            )}
+          </AlertDialogHeader>
 
-        <AlertDialogFooter className="mt-4 flex justify-end gap-2">
-          <AlertDialogCancel
-            disabled={loading}
-            className="bg-red-500 text-white hover:bg-red-500/80"
-            onClick={onCancel}
-          >
-            {cancelText}
-          </AlertDialogCancel>
-
-          {children && <div className="flex">{children}</div>}
-
-          {onConfirm && (
-            <AlertDialogAction
-              disabled={loading}
-              onClick={onConfirm}
-              className="bg-green-500 text-white hover:bg-green-500/80"
-            >
-              {confirmText}
-            </AlertDialogAction>
+          {/* QR Code */}
+          {warning && qrImage && (
+            <div className="mt-5 flex w-full justify-center">
+              <div className="h-64 w-64 overflow-hidden rounded-lg border border-gray-700">
+                <Image
+                  src={qrImage}
+                  alt="UPI QR Code"
+                  width={160}
+                  height={160}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            </div>
           )}
-        </AlertDialogFooter>
+
+          {/* Children */}
+          {children && <div className="mt-6 w-full">{children}</div>}
+
+          {/* Footer */}
+          {(onConfirm || onCancel) && (
+            <AlertDialogFooter className="sticky bottom-0 mt-6 flex justify-end gap-3 bg-neutral-950 pt-4">
+              {onCancel && (
+                <AlertDialogCancel
+                  disabled={loading}
+                  onClick={onCancel}
+                  className="rounded-lg bg-red-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-500/80"
+                >
+                  {cancelText}
+                </AlertDialogCancel>
+              )}
+              {onConfirm && (
+                <AlertDialogAction
+                  disabled={loading}
+                  onClick={onConfirm}
+                  className="rounded-lg bg-green-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-green-500/80"
+                >
+                  {loading ? "Please wait..." : confirmText}
+                </AlertDialogAction>
+              )}
+            </AlertDialogFooter>
+          )}
+        </div>
       </AlertDialogContent>
     </AlertDialog>
   );
@@ -230,12 +274,6 @@ export default function EventRegistration({ eventId }: Props) {
   const event = events.find((event) => event.id === parseInt(eventId, 10));
   const minMembers = eventDetails[parseInt(eventId, 10)].min;
   const maxMembers = eventDetails[parseInt(eventId, 10)].max;
-  // const membersCount = team?.members.length ?? 0;
-  // const canPay =
-  //   team &&
-  //   team.leaderEmail === userEmail &&
-  //   !team.paymentDone &&
-  //   membersCount >= minMembers;
 
   const handleDisband = () => {
     setConfirmDialog({
@@ -306,8 +344,6 @@ export default function EventRegistration({ eventId }: Props) {
   const polygonClip =
     "polygon(12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px)";
 
-  // const amount = eventDetails[parseInt(eventId)].amount;
-
   return (
     <div className="max-w-full px-2 sm:px-4">
       {/* Confirm Dialog */}
@@ -327,13 +363,17 @@ export default function EventRegistration({ eventId }: Props) {
         <ConfirmDialog
           open={true}
           title="Do you want to proceed to payment?"
+          warning
           description={
             <>
-              Add all <strong>team members</strong> before proceeding! After
-              payment, no new members can be added
+              <strong className="text-red-500">
+                Add all team members before proceeding!
+              </strong>{" "}
+              After payment, no new members can be added
             </>
           }
           cancelText="Cancel"
+          eventId={eventId}
           onCancel={() => setPayWarningDialog(false)}
         >
           <PaymentButton
@@ -526,45 +566,55 @@ export default function EventRegistration({ eventId }: Props) {
                 </div>
 
                 {/* Leader Actions */}
-                {team.leaderEmail === userEmail && !team.paymentDone && (
-                  <div className="flex flex-col items-center gap-2 pt-2">
-                    <div className="flex w-full flex-col gap-4 sm:flex-row">
-                      <ClippedCard
-                        innerBg="bg-primary"
-                        className="flex-1 hover:brightness-95"
-                      >
-                        <Button
-                          onClick={() => setPayWarningDialog(true)}
-                          disabled={actionLoading}
-                          className="h-fit w-full cursor-pointer rounded-none px-4 py-2 text-xs font-bold tracking-widest text-black uppercase"
-                        >
-                          Confirm Payment
-                        </Button>
-                      </ClippedCard>
-                      <ClippedCard
-                        innerBg="bg-black"
-                        className="flex-1 hover:brightness-95"
-                      >
-                        <Button
-                          onClick={handleDisband}
-                          disabled={actionLoading}
-                          className="h-fit w-full cursor-pointer rounded-none bg-black px-4 py-2 text-xs font-bold tracking-widest text-white uppercase hover:bg-black"
-                        >
-                          Disband Team
-                        </Button>
-                      </ClippedCard>
-                    </div>
+                {team.leaderEmail === userEmail && (
+                  <>
+                    {team.registered && !team.paymentDone ? (
+                      <div className="text-primary flex flex-col items-center gap-2 pt-2 text-sm">
+                        Payment is being Processed...
+                      </div>
+                    ) : (
+                      !team.paymentDone && (
+                        <div className="flex flex-col items-center gap-2 pt-2">
+                          <div className="flex w-full flex-col gap-4 sm:flex-row">
+                            <ClippedCard
+                              innerBg="bg-primary"
+                              className="flex-1 hover:brightness-95"
+                            >
+                              <Button
+                                onClick={() => setPayWarningDialog(true)}
+                                disabled={actionLoading}
+                                className="h-fit w-full cursor-pointer rounded-none px-4 py-2 text-xs font-bold tracking-widest text-black uppercase"
+                              >
+                                Confirm Payment
+                              </Button>
+                            </ClippedCard>
+                            <ClippedCard
+                              innerBg="bg-black"
+                              className="flex-1 hover:brightness-95"
+                            >
+                              <Button
+                                onClick={handleDisband}
+                                disabled={actionLoading}
+                                className="h-fit w-full cursor-pointer rounded-none bg-black px-4 py-2 text-xs font-bold tracking-widest text-white uppercase hover:bg-black"
+                              >
+                                Disband Team
+                              </Button>
+                            </ClippedCard>
+                          </div>
 
-                    <p className="text-center text-[11px] italic">
-                      <span
-                        onClick={() => router.push("/policies/terms")}
-                        className="text-primary cursor-pointer underline"
-                      >
-                        Terms and Conditions
-                      </span>{" "}
-                      <span className="text-gray-400">applied*</span>
-                    </p>
-                  </div>
+                          <p className="text-center text-[11px] italic">
+                            <span
+                              onClick={() => router.push("/policies/terms")}
+                              className="text-primary cursor-pointer underline"
+                            >
+                              Terms and Conditions
+                            </span>{" "}
+                            <span className="text-gray-400">applied*</span>
+                          </p>
+                        </div>
+                      )
+                    )}
+                  </>
                 )}
 
                 {/* Member Leave Option */}

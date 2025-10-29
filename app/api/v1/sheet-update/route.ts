@@ -45,6 +45,7 @@ export async function POST(req: NextRequest) {
       .doc(data.id)
       .update({
         paymentDone: data?.verified ?? false,
+        registered: data?.verified ?? false,
       });
 
     return NextResponse.json({
