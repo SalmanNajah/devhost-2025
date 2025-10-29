@@ -13,7 +13,7 @@ import clsx from "clsx";
 import { events } from "@/assets/data/events";
 import { Button } from "../ui/button";
 import LoadingSpinner from "../LoadingSpinner";
-import PaymentButton from "@/components/backend/PaymentButton";
+import PaymentButton from "@/components/backend/EventPaymentButton";
 import { eventDetails } from "@/assets/data/eventPayment";
 import { ClippedButton } from "../ClippedButton";
 import { useRouter } from "next/navigation";
