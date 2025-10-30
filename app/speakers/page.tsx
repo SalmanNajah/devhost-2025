@@ -32,14 +32,52 @@ const speakers = [
   {
     id: 3,
     name: "Aakansha Doshi",
-    title: "Core Maintainer @ Project Excalidraw",
-    bio: "Principal Software Engineer at Prophecy and core maintainer of Excalidraw, with deep expertise in Canvas APIs and JavaScript. Advocate for open-source sustainability and community mentorship.",
+    title: "Open Source Enthusiast",
+    bio: "Aakansha is a Principal Software Engineer at Prophecy and a passionate contributor to Free and Open Source Software (FOSS). She’s a core maintainer of projects like Excalidraw, react-tags, and mermaid-to-excalidraw, and more libraries. She loves exploring the internals of the Web and JavaScript while mentoring and supporting the open-source community.",
     img: "/speakers/aakansha.jpeg",
     link: "#",
     presence: {
       place: "DevTalk",
       time: "7th November 2025, 10:00am - 10:45am",
     },
+  },
+  {
+    id: 4,
+    name: "Charis Pinto",
+    title: "Presales Solution Architect @ Niveus Solutions",
+    bio: "Charis Pinto, a Cloud Associate at Niveus Solutions and Google Cloud Certified Professional, is a tech leader passionate about GenAI, web development, and fostering community learning through hackathons, open source, and research.",
+    img: "/speakers/charis-devhost.jpeg",
+    link: "#",
+    presence: {
+      place: "Masterclass",
+      time: "7th November 2025, 1:00pm - 4:00am",
+    },
+  },
+  {
+    id: 5,
+    name: "Raj Raorane",
+    title: "Co-Founder of Edgetributors",
+    bio: "Raj Raorane, a blockchain developer and electronics engineer, contributes to Edgeware and the Polkadot ecosystem, building smart contracts and tools with Rust and Substrate while mentoring developers and advancing Web3 and DAO innovation.",
+    img: "/speakers/Raj Raorane.jpeg",
+    link: "#",  
+    presence: {
+      place: "Masterclass",
+      time: "6th November 2025, 1:30pm - 4:30pm",
+    },
+    
+  },
+  {
+    id: 6,
+    name: "Samwin Steve Pereira",
+    title: "Solution Architect @ Niveus Solutions",
+    bio: "Samwin Pereira, Presales  Data Modernization and AI at Niveus Solutions, is an AI and cloud developer passionate about Google Cloud, serverless tech, and community-driven learning through workshops and mentorship.",
+    img: "/speakers/Samwin Steve Pereira.jpg",
+    link: "#",  
+    presence: {
+      place: "Masterclass",
+      time: "7th November 2025, 1:00pm - 4:00am",
+    },
+    
   },
   // {
   //   id: 4,
