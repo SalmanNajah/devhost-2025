@@ -143,6 +143,34 @@ export default function HackathonDashboardPage() {
         &gt; Secure your spot, review the rules, and get started with your team!
       </p>
 
+      {/* {team?.shortlisted && team.team_leader_email === user.email && (
+        <ClippedCard
+          className="mx-auto mb-8 w-full max-w-4xl"
+          innerBg="bg-[#101810]"
+        >
+          <div className="w-full p-6 py-8 text-center">
+            <h3 className="font-orbitron text-primary mb-4 text-lg font-semibold tracking-wide">
+              Registration Gateway
+            </h3>
+            <p className="mb-6 text-sm leading-relaxed text-white/70">
+              Congratulations! Your team has been shortlisted. Proceed to secure
+              your spot by completing the registration payment.
+            </p>
+            <div className="flex justify-center">
+              <Link href="/hackathon/payment" className="w-full sm:w-auto">
+                <ClippedButton
+                  innerBg="bg-black"
+                  outerBg="bg-primary"
+                  textColor="text-primary"
+                >
+                  Proceed to Payment
+                </ClippedButton>
+              </Link>
+            </div>
+          </div>
+        </ClippedCard>
+      )} */}
+
       {/* Details Card */}
       <ClippedCard className="mx-auto w-full max-w-4xl" innerBg="bg-[#101810]">
         <div className="p-6 py-8">

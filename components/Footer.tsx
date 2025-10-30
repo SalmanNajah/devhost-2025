@@ -73,7 +73,14 @@ const Footer = () => {
               >
                 sosc@sahyadri.edu.in
               </Link>
-              <p className="pt-2">+91 96208 55052</p>
+              <p className="pt-4">
+                Name: Manas S<br />
+                Phone: +91 96208 55052
+              </p>
+              <p className="pt-2">
+                Name: Vivek N <br />
+                Phone: +91 81698 38688
+              </p>
             </div>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6">
@@ -226,7 +233,7 @@ const Footer = () => {
                     target="_blank"
                     className="underlined_link transition-colors duration-200 hover:text-[#B4FF39] hover:drop-shadow-[0_0_5px_#B4FF39]"
                   >
-                    Code of conduct
+                    Code of Conduct
                   </Link>
                 </li>
                 <li>
@@ -236,6 +243,42 @@ const Footer = () => {
                     className="underlined_link transition-colors duration-200 hover:text-[#B4FF39] hover:drop-shadow-[0_0_5px_#B4FF39]"
                   >
                     About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/policies/terms"
+                    target="_blank"
+                    className="underlined_link transition-colors duration-200 hover:text-[#B4FF39] hover:drop-shadow-[0_0_5px_#B4FF39]"
+                  >
+                    Terms & Conditions
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/policies/privacy-policy"
+                    target="_blank"
+                    className="underlined_link transition-colors duration-200 hover:text-[#B4FF39] hover:drop-shadow-[0_0_5px_#B4FF39]"
+                  >
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/policies/refund-cancellation"
+                    target="_blank"
+                    className="underlined_link transition-colors duration-200 hover:text-[#B4FF39] hover:drop-shadow-[0_0_5px_#B4FF39]"
+                  >
+                    Refund & Cancellation
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/policies/shipping-delivery"
+                    target="_blank"
+                    className="underlined_link transition-colors duration-200 hover:text-[#B4FF39] hover:drop-shadow-[0_0_5px_#B4FF39]"
+                  >
+                    Shipping & Delivery
                   </Link>
                 </li>
               </ul>

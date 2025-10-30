@@ -33,7 +33,7 @@ const speakers = [
     id: 3,
     name: "Aakansha Doshi",
     title: "Open Source Enthusiast",
-    bio: "Aakansha is a Principal Software Engineer at Prophecy and a passionate contributor to Free and Open Source Software (FOSS). She’s a core maintainer of projects like Excalidraw, react-tags, and mermaid-to-excalidraw, and more libraries. She loves exploring the internals of the Web and JavaScript while mentoring and supporting the open-source community.",
+    bio: "Aakansha is a Principal Software Engineer at Prophecy and a passionate contributor to Free and Open Source Software (FOSS). She's a core maintainer of projects like Excalidraw, react-tags, and mermaid-to-excalidraw, and more libraries. She loves exploring the internals of the Web and JavaScript while mentoring and supporting the open-source community.",
     img: "/speakers/aakansha.jpeg",
     link: "#",
     presence: {

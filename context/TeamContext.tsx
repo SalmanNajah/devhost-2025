@@ -19,6 +19,7 @@ export interface Team {
   members: Array<{ name: string; email: string; role: string }>;
   drive_link?: string;
   finalized: boolean;
+  shortlisted: boolean;
   createdAt: string | Date;
 }
 
