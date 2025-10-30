@@ -8,18 +8,18 @@ import DecryptText from "@/components/animated/TextAnimation";
 import { useRouter } from "next/navigation";
 
 const speakers = [
-  {
-    id: 1,
-    name: "Swapnil Agarwal",
-    title: "Founder & CEO @ Cactro",
-    bio: "Founder of Cactro (formerly Roc8 Careers), transforming tech hiring by emphasizing skills and problem-solving over background. Previously at Amazon and Meesho, Swapnil empowers diverse developers and advocates for fairness in placements.",
-    img: "/speakers/swapnil_a.jpg",
-    link: "#",
-    presence: {
-      place: "DevTalk",
-      time: "6th November 2025, 10:30am - 11:15am",
-    },
-  },
+  // {
+  //   id: 1,
+  //   name: "Swapnil Agarwal",
+  //   title: "Founder & CEO @ Cactro",
+  //   bio: "Founder of Cactro (formerly Roc8 Careers), transforming tech hiring by emphasizing skills and problem-solving over background. Previously at Amazon and Meesho, Swapnil empowers diverse developers and advocates for fairness in placements.",
+  //   img: "/speakers/swapnil_a.jpg",
+  //   link: "#",
+  //   presence: {
+  //     place: "DevTalk",
+  //     time: "6th November 2025, 10:30am - 11:15am",
+  //   },
+  // },
   {
     id: 2,
     name: "N. Ananthakrishnan Potti",
@@ -59,12 +59,11 @@ const speakers = [
     title: "Co-Founder of Edgetributors",
     bio: "Raj Raorane, a blockchain developer and electronics engineer, contributes to Edgeware and the Polkadot ecosystem, building smart contracts and tools with Rust and Substrate while mentoring developers and advancing Web3 and DAO innovation.",
     img: "/speakers/Raj Raorane.jpeg",
-    link: "#",  
+    link: "#",
     presence: {
       place: "Masterclass",
       time: "6th November 2025, 1:30pm - 4:30pm",
     },
-    
   },
   {
     id: 6,
@@ -72,12 +71,11 @@ const speakers = [
     title: "Solution Architect @ Niveus Solutions",
     bio: "Samwin Pereira, Presales  Data Modernization and AI at Niveus Solutions, is an AI and cloud developer passionate about Google Cloud, serverless tech, and community-driven learning through workshops and mentorship.",
     img: "/speakers/Samwin Steve Pereira.jpg",
-    link: "#",  
+    link: "#",
     presence: {
       place: "Masterclass",
       time: "7th November 2025, 1:00pm - 4:00am",
     },
-    
   },
   // {
   //   id: 4,
