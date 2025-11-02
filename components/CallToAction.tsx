@@ -24,16 +24,24 @@ export default function CallToAction() {
           className="font-orbitron text-sm tracking-widest uppercase opacity-80 sm:text-lg"
         />
       </div>
-      <div className="mx-auto w-fit">
+      <div className="mx-auto flex w-fit gap-2">
         <ClippedButton
           innerBg="bg-black"
           outerBg="bg-primary"
           textColor="text-primary"
           onClick={() => router.push("/events")}
+          className="whitespace-pre"
         >
           Join Events
         </ClippedButton>
-
+        <ClippedButton
+          innerBg="bg-primary"
+          outerBg="bg-black"
+          textColor="text-black"
+          onClick={() => router.push("/speakers")}
+        >
+          Speakers
+        </ClippedButton>
         {/* Deadline Extension */}
         {/* <p className="font-orbitron -mb-8 text-center text-sm text-white sm:pt-2">
           <span className="font-amiga text-red-500">!!</span> Deadline Extended
