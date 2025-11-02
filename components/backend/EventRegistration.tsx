@@ -68,11 +68,12 @@ function ConfirmDialog({
   eventId,
   children,
 }: ConfirmDialogProps) {
+  const [showQR, setShowQR] = useState(false);
   const qrImage =
     eventId === "1"
-      ? "/pay/qr-code_450.png"
+      ? "/pay/qr-code_500.png"
       : ["2", "3", "4", "5"].includes(eventId ?? "")
-        ? "/pay/qr-code_150.png"
+        ? "/pay/qr-code_200.png"
         : null;
 
   return (
@@ -95,26 +96,41 @@ function ConfirmDialog({
           </AlertDialogHeader>
 
           {/* QR Code */}
-          {warning && qrImage && (
-            <div className="mt-5 flex w-full justify-center">
-              <div className="h-64 w-64 overflow-hidden rounded-lg border border-gray-700">
-                <Image
-                  src={qrImage}
-                  alt="UPI QR Code"
-                  width={160}
-                  height={160}
-                  className="h-full w-full object-cover"
-                />
-              </div>
-            </div>
-          )}
+          <>
+            {warning && qrImage && (
+              <div className="mt-5 flex w-full flex-col items-center">
+                <label className="flex items-center gap-2 text-sm text-gray-300">
+                  <input
+                    type="checkbox"
+                    checked={showQR}
+                    onChange={(e) => setShowQR(e.target.checked)}
+                    className="h-4 w-4 accent-purple-500"
+                  />
+                  I HAVE ADDED ALL TEAM MEMBERS FIRST
+                </label>
 
-          {/* Children */}
-          {children && <div className="mt-6 w-full">{children}</div>}
+                {showQR && (
+                  <>
+                    <div className="mt-2 h-64 w-64 overflow-hidden rounded-lg border border-gray-700">
+                      <Image
+                        src={qrImage}
+                        alt="UPI QR Code"
+                        width={160}
+                        height={160}
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                    {/* Children */}
+                    {children && <div className="mt-6 w-full">{children}</div>}
+                  </>
+                )}
+              </div>
+            )}
+          </>
 
           {/* Footer */}
           {(onConfirm || onCancel) && (
-            <AlertDialogFooter className="sticky bottom-0 mt-6 flex justify-end gap-3 bg-neutral-950 pt-4">
+            <AlertDialogFooter className="sticky bottom-0 mt-2 flex justify-end gap-3 bg-neutral-950 pt-4">
               {onCancel && (
                 <AlertDialogCancel
                   disabled={loading}

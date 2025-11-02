@@ -141,9 +141,9 @@ export default function EventListing() {
                           <span className="mr-1 font-semibold text-[#b4ff39]">
                             Amount:
                           </span>
-                          <span className="text-sm text-gray-400 line-through">
+                          {/* <span className="text-sm text-gray-400 line-through">
                             ₹{eventDetails[event.id].amount + 50}
-                          </span>
+                          </span> */}
                           <span className="font-semibold text-[#b4ff39]">
                             ₹{eventDetails[event.id].amount}
                           </span>
