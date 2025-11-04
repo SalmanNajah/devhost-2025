@@ -9,6 +9,19 @@ import { useRouter } from "next/navigation";
 
 const speakers = [
   {
+    id: 1,
+    name: "Dr. Pruthviraj Umesh",
+    title: "Associate Professor @ NITK",
+    bio: "Dr. Pruthviraj U, Associate Professor at National Institute of Technology Karnataka Surathkal, leads transdisciplinary R&D integrating engineering, AI, and innovation, with 17+ years of experience and major contributions in structural analysis, disaster mitigation, and sustainable technologies.",
+    img: "/speakers/dr-pruthviraj-nitk.jpeg",
+    link: "https://www.linkedin.com/in/dr-pruthviraj-u?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",  
+    presence: {
+      place: "DevTalk",
+      time: "6th November 2025, 10:30am - 11:15am",
+    },
+    
+  },
+  {
     id: 2,
     name: "N. Ananthakrishnan Potti",
     title: "Leading Security Operations @ OLA",
@@ -65,6 +78,30 @@ const speakers = [
       time: "7th November 2025, 1:00pm - 4:00am",
     },
   },
+  {
+    id: 7,
+    name: "Raghu Anand",
+    title: "Head of Technology L&D / Training @ EG/AS",
+    bio: "Raghu Anand, Lead Technical Instructor at EG A/S, is an experienced tech educator specializing in software engineering, cloud, ML, and DevOps. A former learning leader at AlmaBetter, Apisero, and Edureka, he’s guided thousands of developers through innovative, industry-aligned training and mentorship.",
+    img: "/speakers/RaghuAnand.jpg",
+    link: "https://www.linkedin.com/in/raghuanand16",
+    presence: {
+      place: "DevTalk",
+      time: "6th November 2025, 11:30am - 12:15am",
+    },
+  },
+  // {
+  //   id: 4,
+  //   name: "Vivek Keshore",
+  //   title: "Software Architect @ EPAM Systems",
+  //   bio: "Seasoned Python architect with 12+ years of experience in backend development and cloud architecture. A PyCon India speaker and open-source contributor, he specializes in FastAPI, Flask, and scalable systems.",
+  //   img: "/speakers/vivek.jpg",
+  //   link: "#",
+  //   presence: {
+  //     place: "Masterclass",
+  //     time: "7th November 2025, 1:00pm - 4:00pm",
+  //   },
+  // },
 ];
 
 export default function SpeakerPage() {
