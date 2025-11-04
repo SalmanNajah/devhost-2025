@@ -92,4 +92,16 @@ export const events = [
     contact: "+91 7795667280",
     image: "/event/speedcuber.webp",
   },
+  {
+    id: 9,
+    title: "Scavenger Hunt",
+    tagline: "Decode. Dash. Dominate.",
+    description:
+      "Race across campus solving clues, finding QR codes, and conquering challenges to become the ultimate Codebreaker!",
+    date: "All 3 days",
+    time: "9:00 AM",
+    organizer: "Soniya Kolvekar",
+    contact: "+91 8618950479",
+    image: "/event/scavengerhunt.png",
+  },
 ];

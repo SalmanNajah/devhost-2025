@@ -66,7 +66,7 @@ export default function EventListing() {
       {/* Event cards */}
       <div className="relative z-10 grid w-full max-w-[1200px] grid-cols-1 gap-8 px-4 lg:grid-cols-2">
         {events.map((event) => {
-          const noRegister = [6, 7, 8].includes(event.id);
+          const noRegister = [6, 7, 8, 9].includes(event.id);
           return (
             <div
               key={event.id}
