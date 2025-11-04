@@ -59,12 +59,11 @@ const speakers = [
     title: "Co-Founder of Edgetributors",
     bio: "Raj Raorane, a blockchain developer and electronics engineer, contributes to Edgeware and the Polkadot ecosystem, building smart contracts and tools with Rust and Substrate while mentoring developers and advancing Web3 and DAO innovation.",
     img: "/speakers/Raj Raorane.jpeg",
-    link: "#",  
+    link: "#",
     presence: {
       place: "Masterclass",
       time: "6th November 2025, 1:30pm - 4:30pm",
     },
-    
   },
   {
     id: 6,
@@ -72,12 +71,24 @@ const speakers = [
     title: "Solution Architect @ Niveus Solutions",
     bio: "Samwin Pereira, Presales  Data Modernization and AI at Niveus Solutions, is an AI and cloud developer passionate about Google Cloud, serverless tech, and community-driven learning through workshops and mentorship.",
     img: "/speakers/Samwin Steve Pereira.jpg",
-    link: "#",  
+    link: "#",
     presence: {
       place: "Masterclass",
       time: "7th November 2025, 1:00pm - 4:00am",
     },
-    
+  },
+
+  {
+    id: 8,
+    name: "Raghu Anand",
+    title: "Associate Professor @ National Institute of Technology Karnataka",
+    bio: "Raghu Anand, Lead Technical Instructor at EG A/S, is an experienced tech educator specializing in software engineering, cloud, ML, and DevOps. A former learning leader at AlmaBetter, Apisero, and Edureka, he’s guided thousands of developers through innovative, industry-aligned training and mentorship.",
+    img: "/speakers/RaghuAnand.jpg",
+    link: "#",
+    presence: {
+      place: "DevTalk",
+      time: "6th November 2025, 11:30am - 12:15am",
+    },
   },
   // {
   //   id: 4,

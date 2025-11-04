@@ -30,10 +30,12 @@ export const markers = [
         time: "10:30",
         displayTime: "10:30 AM - 11:15 AM",
         icon: <MicVocal className="h-auto sm:w-8" />,
-        title: "DevTalk 1",
-        description: "Technical talk session.",
-        speaker: "TBA",
-        role: "TBA",
+        title:
+          "Collaboration for Change: Transdisciplinary Solutions to Social Problems",
+        description:
+          "A brief on how drone-based mapping and cross-disciplinary collaboration use geospatial intelligence to drive sustainable, resilient, and community-focused solutions to modern social and environmental challenges.",
+        speaker: "Dr. Pruthviraj Umesh",
+        role: "Associate Professor @ National Institute of Technology Karnataka",
         venue: "TBA",
       },
       {
@@ -41,10 +43,10 @@ export const markers = [
         time: "11:30",
         displayTime: "11:30 AM - 12:15 PM",
         icon: <MicVocal className="h-auto sm:w-8" />,
-        title: "DevTalk 2",
+        title: "Agent Collaboration: A Dive into Google’s A2A Protocol",
         description: "Technical talk session.",
-        speaker: "TBA",
-        role: "TBA",
+        speaker: "Raghu Anand",
+        role: "Head of Technology L&D / Training @ EG/AS",
         venue: "TBA",
       },
       {
