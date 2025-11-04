@@ -116,7 +116,7 @@ export default function Events() {
       {/* Event cards */}
       <div className="relative z-10 grid w-full max-w-[1200px] grid-cols-1 gap-8 px-4 lg:grid-cols-2">
         {events.map((event, idx) => {
-          const noRegister = [6, 7, 8].includes(event.id);
+          const noRegister = [6, 7, 8, 9].includes(event.id);
           return (
             <div
               key={event.id}
@@ -194,9 +194,9 @@ export default function Events() {
                           <span className="mr-1 font-semibold text-[#b4ff39]">
                             Amount:
                           </span>
-                          <span className="text-sm text-gray-400 line-through">
+                          {/* <span className="text-sm text-gray-400 line-through">
                             ₹{eventDetails[event.id].amount + 50}
-                          </span>
+                          </span> */}
                           <span className="font-semibold text-[#b4ff39]">
                             ₹{eventDetails[event.id].amount}
                           </span>

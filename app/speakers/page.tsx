@@ -9,24 +9,12 @@ import { useRouter } from "next/navigation";
 
 const speakers = [
   {
-    id: 1,
-    name: "Swapnil Agarwal",
-    title: "Founder & CEO @ Cactro",
-    bio: "Founder of Cactro (formerly Roc8 Careers), transforming tech hiring by emphasizing skills and problem-solving over background. Previously at Amazon and Meesho, Swapnil empowers diverse developers and advocates for fairness in placements.",
-    img: "/speakers/swapnil_a.jpg",
-    link: "#",
-    presence: {
-      place: "DevTalk",
-      time: "6th November 2025, 10:30am - 11:15am",
-    },
-  },
-  {
     id: 2,
     name: "N. Ananthakrishnan Potti",
     title: "Leading Security Operations @ OLA",
     bio: "Security Operations Engineer II at OLA with expertise in threat detection, incident response, and cloud security. A certified ethical hacker and mentor under Kerala Startup Mission, passionate about cybersecurity education.",
     img: "/speakers/potti.jpg",
-    link: "#",
+    link: "https://www.linkedin.com/in/ananthakrishnanpotti/",
     presence: { place: "DevTalk", time: "7th November 2025, 9:00am - 9:45am" },
   },
   {
@@ -35,7 +23,7 @@ const speakers = [
     title: "Open Source Enthusiast",
     bio: "Aakansha is a Principal Software Engineer at Prophecy and a passionate contributor to Free and Open Source Software (FOSS). She's a core maintainer of projects like Excalidraw, react-tags, and mermaid-to-excalidraw, and more libraries. She loves exploring the internals of the Web and JavaScript while mentoring and supporting the open-source community.",
     img: "/speakers/aakansha.jpeg",
-    link: "#",
+    link: "https://www.linkedin.com/in/aa1992/",
     presence: {
       place: "DevTalk",
       time: "7th November 2025, 10:00am - 10:45am",
@@ -47,7 +35,7 @@ const speakers = [
     title: "Presales Solution Architect @ Niveus Solutions",
     bio: "Charis Pinto, a Cloud Associate at Niveus Solutions and Google Cloud Certified Professional, is a tech leader passionate about GenAI, web development, and fostering community learning through hackathons, open source, and research.",
     img: "/speakers/charis-devhost.jpeg",
-    link: "#",
+    link: "https://www.linkedin.com/in/charispinto/",
     presence: {
       place: "Masterclass",
       time: "7th November 2025, 1:00pm - 4:00am",
@@ -59,7 +47,7 @@ const speakers = [
     title: "Co-Founder of Edgetributors",
     bio: "Raj Raorane, a blockchain developer and electronics engineer, contributes to Edgeware and the Polkadot ecosystem, building smart contracts and tools with Rust and Substrate while mentoring developers and advancing Web3 and DAO innovation.",
     img: "/speakers/Raj Raorane.jpeg",
-    link: "#",
+    link: "https://www.linkedin.com/in/raj-raorane-45b2b4166/",
     presence: {
       place: "Masterclass",
       time: "6th November 2025, 1:30pm - 4:30pm",
@@ -71,7 +59,7 @@ const speakers = [
     title: "Solution Architect @ Niveus Solutions",
     bio: "Samwin Pereira, Presales  Data Modernization and AI at Niveus Solutions, is an AI and cloud developer passionate about Google Cloud, serverless tech, and community-driven learning through workshops and mentorship.",
     img: "/speakers/Samwin Steve Pereira.jpg",
-    link: "#",
+    link: "https://www.linkedin.com/in/samwin-pereira-058417246/",
     presence: {
       place: "Masterclass",
       time: "7th November 2025, 1:00pm - 4:00am",
@@ -219,7 +207,9 @@ export default function SpeakerPage() {
           <p className="text-primary text-xs">{speakers[index].title}</p>
         </div>
         <div>
-          <ClippedButton>
+          <ClippedButton
+            onClick={() => window.open(speakers[index].link, "_blank")}
+          >
             <span className="hidden sm:block">Profile</span>
             <ExternalLink size={16} />
           </ClippedButton>
