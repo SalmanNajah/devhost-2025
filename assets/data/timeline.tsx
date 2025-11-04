@@ -36,7 +36,7 @@ export const markers = [
           "A brief on how drone-based mapping and cross-disciplinary collaboration use geospatial intelligence to drive sustainable, resilient, and community-focused solutions to modern social and environmental challenges.",
         speaker: "Dr. Pruthviraj Umesh",
         role: "Associate Professor @ National Institute of Technology Karnataka",
-        venue: "TBA",
+        venue: "Ground Floor Seminar Hall",
       },
       {
         id: "day1-event4",
@@ -47,7 +47,7 @@ export const markers = [
         description: "Technical talk session.",
         speaker: "Raghu Anand",
         role: "Head of Technology L&D / Training @ EG/AS",
-        venue: "TBA",
+        venue: "Ground Floor Seminar Hall",
       },
       {
         id: "day1-event5",
@@ -60,7 +60,7 @@ export const markers = [
           "A beginner-friendly masterclass on blockchain fundamentals and Polkadot’s multi-chain architecture, featuring hands-on demos with Polkadot tools and insights into real-world developer opportunities..",
         speaker: "Raj Raorane",
         role: "Co-Founder of Edgetributors",
-        venue: "TBA",
+        venue: "Ground Floor Seminar Hall",
       },
       {
         id: "day1-event6",
@@ -71,7 +71,7 @@ export const markers = [
         description: "Talks before the hackathon kickoff.",
         speaker: "TBA",
         role: "TBA",
-        venue: "TBA",
+        venue: "Ground Floor Seminar Hall",
       },
       {
         id: "day1-event7",
@@ -80,7 +80,7 @@ export const markers = [
         icon: <Flame className="h-auto sm:w-8" />,
         title: "DevHack - Hackathon Starts",
         description: "Official kickoff of the hackathon.",
-        venue: "TBA",
+        venue: "Skill Lab Classrooms",
       },
     ],
   },
@@ -103,10 +103,10 @@ export const markers = [
         displayTime: "9:00 AM - 9:45 AM",
         icon: <MicVocal className="h-auto sm:w-8" />,
         title: "The Cloud Isn't Safe — Until You Make It",
-        description: "Technical talk session.",
+        description: "This session equips security professionals and enthusiasts with practical strategies for detecting, protecting, and responding to threats in cloud ecosystems. It explores key tools, automation, and best practices to build resilient, scalable, and adaptive cloud security operations.",
         speaker: "N. Ananthakrishnan Potti",
         role: "Leading Security Operations @ OLA",
-        venue: "TBA",
+        venue: "Ground Floor Seminar Hall",
       },
       {
         id: "day2-event3",
@@ -118,7 +118,7 @@ export const markers = [
           "Aakansha Doshi will share her journey and guide students on the technical and practical aspects of contributing to open source",
         speaker: "Aakansha Doshi",
         role: "Core Maintainer and Contributor @ Project Excalidraw",
-        venue: "TBA",
+        venue: "Ground Floor Seminar Hall",
       },
       {
         id: "day2-event4",
@@ -127,7 +127,7 @@ export const markers = [
         icon: <Flame className="h-auto sm:w-8" />,
         title: "R00TQuest - CTF",
         description: "Capture the Flag cybersecurity challenge.",
-        venue: "TBA",
+        venue: "AIML Lab 3 & 4",
       },
       {
         id: "day2-event5",
@@ -136,7 +136,7 @@ export const markers = [
         icon: <Flame className="h-auto sm:w-8" />,
         title: "How I Met My Investor",
         description: "Startup pitch competition.",
-        venue: "TBA",
+        venue: "First Floor Seminar Hall",
       },
       {
         id: "day2-event6",
@@ -145,7 +145,7 @@ export const markers = [
         icon: <Flame className="h-auto sm:w-8" />,
         title: "Loot & Load",
         description: "Competitive Battle Royale Experience",
-        venue: "TBA",
+        venue: "CAD & CIM Labs",
       },
       {
         id: "day2-event7",
@@ -157,7 +157,7 @@ export const markers = [
           "A hands-on workshop guiding you from basic AI agents to advanced multi-agent systems using core components like models, tools, orchestration, memory, and evaluation for real-world deployment.",
         speaker: "Charis Pinto & Samwin Pereira",
         role: "Presales Solution Architect and Solution Architect | Presales (Data Modernization & AI), Niveus Solutions",
-        venue: "TBA",
+        venue: "Ground Floor Seminar Hall",
       },
       {
         id: "day2-event8",
@@ -166,7 +166,7 @@ export const markers = [
         icon: <Flame className="h-auto sm:w-8" />,
         title: "O(n) Slaught",
         description: "Competitive programming contest.",
-        venue: "TBA",
+        venue: "CSE Central Lab",
       },
       {
         id: "day2-event9",
@@ -175,7 +175,7 @@ export const markers = [
         icon: <Flame className="h-auto sm:w-8" />,
         title: "Oh My Grid!",
         description: "CSS grid based design contest.",
-        venue: "TBA",
+        venue: "Language Learning Center",
       },
     ],
   },
@@ -199,7 +199,7 @@ export const markers = [
         icon: <Flame className="h-auto sm:w-8" />,
         title: "Hackathon Final Judging",
         description: "Final evaluation of hackathon submissions.",
-        venue: "TBA",
+        venue: "Ground Floor Seminar Hall",
       },
       {
         id: "day3-event3",
@@ -208,7 +208,7 @@ export const markers = [
         icon: <Flame className="h-auto sm:w-8" />,
         title: "Tech-Tac-Toe",
         description: "Interactive technical game event.",
-        venue: "TBA",
+        venue: "Royal Mech",
       },
       {
         id: "day3-event4",
