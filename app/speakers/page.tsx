@@ -14,12 +14,11 @@ const speakers = [
     title: "Associate Professor @ NITK",
     bio: "Dr. Pruthviraj U, Associate Professor at National Institute of Technology Karnataka Surathkal, leads transdisciplinary R&D integrating engineering, AI, and innovation, with 17+ years of experience and major contributions in structural analysis, disaster mitigation, and sustainable technologies.",
     img: "/speakers/dr-pruthviraj-nitk.jpeg",
-    link: "https://www.linkedin.com/in/dr-pruthviraj-u?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",  
+    link: "https://www.linkedin.com/in/dr-pruthviraj-u?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     presence: {
       place: "DevTalk",
       time: "6th November 2025, 10:30am - 11:15am",
     },
-    
   },
   {
     id: 2,

@@ -213,6 +213,7 @@ export default function Events() {
                         textColor="text-black"
                         className="font-orbitron flex w-full items-center justify-center gap-2 px-6 py-2 text-center text-xs font-bold tracking-wider uppercase"
                         onClick={() => onCardClick(event.id)}
+                        disabled
                       >
                         Register
                       </ClippedButton>

@@ -103,7 +103,8 @@ export const markers = [
         displayTime: "9:00 AM - 9:45 AM",
         icon: <MicVocal className="h-auto sm:w-8" />,
         title: "The Cloud Isn't Safe — Until You Make It",
-        description: "This session equips security professionals and enthusiasts with practical strategies for detecting, protecting, and responding to threats in cloud ecosystems. It explores key tools, automation, and best practices to build resilient, scalable, and adaptive cloud security operations.",
+        description:
+          "This session equips security professionals and enthusiasts with practical strategies for detecting, protecting, and responding to threats in cloud ecosystems. It explores key tools, automation, and best practices to build resilient, scalable, and adaptive cloud security operations.",
         speaker: "N. Ananthakrishnan Potti",
         role: "Leading Security Operations @ OLA",
         venue: "Ground Floor Seminar Hall",
