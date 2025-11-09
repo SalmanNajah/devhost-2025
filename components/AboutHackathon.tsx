@@ -341,8 +341,7 @@ export default function Home() {
           </p> */}
 
           <div className="mx-auto flex w-full max-w-md flex-col items-center justify-center gap-4 sm:flex-row">
-            <div className="font-orbitron">
-              {/* Know More Button */}
+            {/* <div className="font-orbitron">
               <ClippedButton
                 innerBg="bg-primary"
                 textColor="text-black"
@@ -350,7 +349,7 @@ export default function Home() {
               >
                 <Link href="/hackathon">Know More</Link>
               </ClippedButton>
-            </div>
+            </div> */}
 
             <div>
               <a href="/brochure/devhack_rulebook.pdf" download>

@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { eventDetails } from "@/assets/data/eventPayment";
 import { toast } from "sonner";
-import { registerAndInsert } from "@/app/actions/pay";
+import { registerAndInsert } from "@/app/_actions/pay";
 
 type PaymentButtonProps = {
   teamId: string;

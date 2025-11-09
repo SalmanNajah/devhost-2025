@@ -150,7 +150,7 @@ export default function Counter() {
           transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
           className="font-orbitron max-w-5xl px-4 text-center text-3xl font-bold sm:text-6xl"
         >
-          The Event Has Started!
+          See You Next Time!
         </motion.div>
       </div>
     );
