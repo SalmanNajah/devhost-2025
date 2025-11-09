@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-import Link from "next/link";
+// import Link from "next/link";
 import { ClippedButton } from "./ClippedButton";
 import { Download } from "lucide-react";
 

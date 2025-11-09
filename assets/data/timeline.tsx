@@ -12,7 +12,6 @@ export const markers = [
         icon: <Flame className="h-auto sm:w-8" />,
         title: "Registration",
         description: "Attendee check-in and welcome desk.",
-        venue: "TBA",
       },
       {
         id: "day1-event2",
@@ -21,9 +20,6 @@ export const markers = [
         icon: <MicVocal className="h-auto sm:w-8" />,
         title: "Inaugural Keynote",
         description: "Kickoff keynote session to open DevHost 2025.",
-        speaker: "TBA",
-        role: "TBA",
-        venue: "TBA",
       },
       {
         id: "day1-event3",
@@ -69,8 +65,6 @@ export const markers = [
         icon: <MicVocal className="h-auto sm:w-8" />,
         title: "Pre-Hackathon Talks",
         description: "Talks before the hackathon kickoff.",
-        speaker: "TBA",
-        role: "TBA",
         venue: "Ground Floor Seminar Hall",
       },
       {
@@ -95,7 +89,6 @@ export const markers = [
         icon: <Flame className="h-auto sm:w-8" />,
         title: "Registration",
         description: "Day 2 check-in.",
-        venue: "TBA",
       },
       {
         id: "day2-event2",
@@ -191,7 +184,6 @@ export const markers = [
         icon: <Flame className="h-auto sm:w-8" />,
         title: "DevHack - Hackathon Ends",
         description: "Submission deadline for hackathon projects.",
-        venue: "TBA",
       },
       {
         id: "day3-event2",
@@ -218,9 +210,6 @@ export const markers = [
         icon: <MicVocal className="h-auto sm:w-8" />,
         title: "Valedictory",
         description: "Closing ceremony of DevHost 2025.",
-        speaker: "TBA",
-        role: "TBA",
-        venue: "TBA",
       },
     ],
   },

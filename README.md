@@ -60,6 +60,21 @@ Follow us:
 
 ---
 
+## Website Contributors
+
+- [@JustModo](https://github.com/JustModo)
+- [@HithaBadikillaya](https://github.com/HithaBadikillaya)
+- [@Salman-in](https://github.com/Salman-in)
+- [@mrkushalsm](https://github.com/mrkushalsm)
+- [@Prathyusha-K-05](https://github.com/Prathyusha-K-05)
+- [@YiVibro](https://github.com/YiVibro)
+- [@Priyadarshinimulloli](https://github.com/Priyadarshinimulloli)
+- [@josvita0323](https://github.com/josvita0323)
+- [@nithink-code](https://github.com/nithink-code)
+- [@VivekNeer](https://github.com/VivekNeer)
+
+---
+
 ## License
 
 This project and its contents are managed by the Sahyadri Open Source Community (SOSC).  
